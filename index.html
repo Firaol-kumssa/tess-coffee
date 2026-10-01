@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tess Coffee · Ethiopian specialty coffee</title>
+  <meta name="description" content="Tess Coffee: Ethiopian single origins on the espresso bar, the slow bar and the jebena. See today's menu, what's in stock, cup prices and how to find us.">
+  <meta name="theme-color" content="#f6efe2">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Link previews. When the site is online, change og:image to the full address,
+       e.g. https://tesscoffee.com/assets/img/og-image.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tess Coffee">
+  <meta property="og:description" content="Coffee from where coffee began. Menu, today's stock and directions.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="assets/fonts/fraunces-soft.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="content.js" defer></script>
+  <script src="assets/js/cup.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- @logo-sprite:start -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="tess-logo" viewBox="135.7 5.7 685.1 659.5">
+      <g fill-rule="evenodd">
+        <path class="tl-leaves" style="fill:var(--logo-leaves,#b18637)" d="M 604.6 12 C 590.7 21 579.4 31.6 572.5 42 C 569.2 47 565.1 55.4 563.7 60.2 C 561.8 66.8 560.1 78.7 560.5 83.8 C 561.3 95.3 562.5 101.9 565.2 110 C 566.6 114 570.2 122.1 571.8 124.5 C 575.4 130.3 581.8 138.3 582.9 138.6 C 583.1 138.7 583.4 138.4 583.5 137.9 C 584.2 134.5 585.1 129.5 586 124.2 C 586.5 120.7 587.2 116.6 587.5 115.2 C 587.8 113.7 588.3 110.7 588.7 108.5 C 589.1 106.3 589.7 102.7 590.2 100.5 C 591.1 96.4 592.7 88.2 595 76 C 596.3 69.3 596.8 66.6 599 56.7 C 599.6 54 600.3 50.8 600.5 49.5 C 601.1 46.6 603.1 37.7 604.2 33 C 604.6 31.1 605.1 29 605.2 28.4 C 605.4 27.3 606 26.9 606 27.9 C 606 28.6 605.7 30.7 604.5 39.7 C 603.2 48.9 603 49.9 602.3 53.8 C 602 55.9 601.5 59.5 601.2 61.8 C 600.6 66.3 600.5 66.9 598.3 80.3 C 596.6 90.8 594.9 101.7 593.7 110.5 C 593.5 111.7 593.3 112.8 593.2 113 C 593.1 113.1 592.7 115.4 592.4 118 C 591.5 123.7 590.5 130.1 589.8 133.8 C 589 138.7 588.9 140.3 589.4 140.5 C 589.9 140.7 594 138.6 597.8 136.1 C 606.1 130.7 614.2 123.3 619.9 115.7 C 622.2 112.7 625.6 106.9 627.8 102.3 C 630.1 97.5 632.8 87.9 633.7 81.3 C 634.2 77.6 633.9 64.5 633.2 60.7 C 631.9 53.4 629.5 44.8 627.5 40.5 C 624.5 34 621.6 28.3 620.3 26 C 614.1 15.7 609.8 9.7 608.7 9.7 C 608.4 9.7 606.5 10.7 604.6 12 M 490.4 72.9 C 489.8 73.1 489.9 87.5 490.5 92.9 C 492.9 113 499.7 131 510.5 146.3 C 518.9 158.2 532.1 169.8 544.7 176.4 C 551.9 180.1 559.1 182.8 567.5 184.8 C 572.3 186 573 185.9 573.6 184.3 C 574.1 182.6 575 174.6 575 171.3 C 575 168.1 574.2 157.7 573.6 154.2 C 572 143.2 568.5 132.6 563.2 122.2 C 561.1 118 556.4 110.8 553.2 106.8 C 550 102.9 540.9 94 537.5 91.5 C 527 83.7 514.9 77.9 502.8 75 C 501.2 74.6 499.3 74.2 498.7 74 C 498 73.8 496.2 73.5 494.7 73.4 C 493.1 73.2 491.6 73 491.3 72.9 C 491.1 72.8 490.6 72.8 490.4 72.9 M 675.7 99.5 C 668 100.1 658 102.5 650.8 105.5 C 644.6 108.2 641.7 109.7 636.4 112.9 C 624.8 120.1 617.2 126.6 607.7 137.6 C 603.6 142.5 603 143.2 600.4 147.2 C 593.9 156.7 589.6 165.3 586.5 174.4 C 583.3 183.8 583.1 185 584.1 185 C 584.4 185 587.3 182.1 590.6 178.7 C 597.1 172 605.7 163.9 610.2 160.3 C 617.9 154.1 628.1 147.1 629.1 147.4 C 629.5 147.6 624.9 152.3 616.3 160.2 C 612.6 163.7 607.6 168.6 605.2 171 C 602.8 173.5 598.2 178.2 594.9 181.5 C 591.7 184.8 589 187.7 589 187.9 C 589 188.5 589.6 188.6 595 189.1 C 611.7 190.9 624.8 189.2 639.3 183.5 C 652 178.4 661.1 172.2 672.4 161 C 683.3 150.1 691.7 137.2 698 121.8 C 698.3 120.8 699 119.3 699.3 118.3 C 700.5 115.4 703 107.6 703.5 105 C 704 102.9 704 102.5 703.5 102.1 C 703.1 101.6 701.4 101.3 694 100.1 C 690.6 99.6 679.6 99.3 675.7 99.5 M 536.7 105 C 536.7 105.5 537.8 107 540.4 110.1 C 546 116.7 554.7 131.7 559.5 143.3 C 563.3 152.4 563.7 153.8 566.3 164.5 C 566.9 166.9 567.7 170 568.2 171.5 C 568.6 173 569.2 175.1 569.6 176.3 C 569.9 177.5 570.3 178.5 570.5 178.4 C 571.1 178.3 570.8 167.5 570.2 164.3 C 568.9 157.8 566.5 149.9 564.2 144.3 C 562.3 139.8 557.8 131.4 554.7 126.3 C 550.5 119.7 547.9 116.1 542.5 110.2 C 538.5 105.7 536.7 104.1 536.7 105"/>
+        <path class="tl-script" style="fill:var(--logo-script,#102315)" d="M 344.8 159.4 C 338.5 159.6 324.4 160.7 319.7 161.3 C 311 162.4 308.4 162.8 304.3 163.4 C 301.9 163.8 298.9 164.2 297.7 164.4 C 288 165.8 276.4 168 267.8 170.1 C 256.7 172.9 245.1 176.3 240 178.2 C 238.7 178.7 234.7 180.1 229.7 181.9 C 219.4 185.5 201.7 193.8 191.5 200 C 179.8 207 169.6 214.8 162.3 222.2 C 146.6 238.3 139.7 252.7 139.7 269.6 C 139.7 277.5 140.6 281.8 143.8 288.1 C 146.1 292.6 147.5 294.6 150.3 297.8 C 157.9 306.3 169.9 312.7 178.2 312.7 C 183.1 312.7 185.7 310.7 185.7 306.9 C 185.7 305.4 185.4 304.9 182 300.2 C 176.4 292.4 175.1 282.7 178 272 C 181.4 259.7 189.9 248.6 203.2 238.9 C 212.3 232.3 224 226.5 240 220.5 C 245.3 218.5 255.6 215.1 258 214.5 C 259 214.3 260.7 213.8 261.7 213.5 C 265.5 212.4 283.2 207.9 284.2 207.8 C 285.3 207.6 296 205.8 298.7 205.3 C 299.7 205.1 301.5 204.8 302.7 204.7 C 303.9 204.5 306.3 204.1 308.2 203.9 C 310 203.6 313.2 203.1 315.3 202.8 C 317.4 202.6 319.5 202.3 320 202.2 C 323.8 201.4 336.5 200.2 349 199.3 C 360 198.5 409 198.5 409 199.3 C 409 199.4 407.4 200.3 405.5 201.2 C 400.9 203.5 397.6 205.7 395.2 208 C 393.4 209.6 384.4 220.1 380.2 225.2 C 370.6 237 366.1 242.7 357.6 254.5 C 354.9 258.1 351.5 262.9 349.9 265 C 347.3 268.6 342.5 275.5 336.5 284.3 C 335 286.4 331.9 290.9 329.6 294.2 C 325.3 300.5 311.9 320.4 308.3 326.2 C 307.1 328.1 305.3 330.9 304.3 332.6 C 301.3 337.2 295.9 345.9 294 349.2 C 293 350.8 291.8 352.9 291.2 353.8 C 290.6 354.8 289.1 357.2 287.9 359.2 C 286.7 361.2 284.3 365.2 282.6 368 C 279.6 373 276.5 378.2 275.1 380.7 C 274.7 381.3 273.4 383.6 272.1 385.7 C 270.8 387.8 269.1 390.9 268.2 392.5 C 266.2 396.2 262.5 402.7 261.4 404.4 C 257.1 411.3 239.3 446.2 231 464.2 C 229.2 468 224.5 478.2 223.7 480.2 C 223.3 481.1 222.7 482.3 222.4 483 C 222.2 483.6 221.1 486.1 220 488.6 C 218.9 491.1 217.3 495 216.3 497.2 C 214.6 501.1 210.8 511 209 516.2 C 202 536.1 201.2 549 205.9 562.6 C 209.2 572.3 217.1 581.3 226.2 585.9 C 229.6 587.6 232.9 587.8 235.1 586.5 C 237.6 585.1 237.8 584.8 239.7 576.8 C 241.5 569.2 244.1 561.2 247 553.6 C 248 551.2 249.3 547.6 250.1 545.7 C 250.8 543.7 252.1 540.7 252.9 539 C 253.6 537.3 255.2 533.7 256.3 531.2 C 257.4 528.6 259.2 524.6 260.3 522.3 C 261.4 520 262.7 517 263.3 515.7 C 263.9 514.3 265.6 510.8 267 507.8 C 268.4 504.9 270 501.5 270.5 500.3 C 272.7 495.4 293.3 454.6 296.7 448.5 C 297.8 446.7 299.6 443.3 300.7 441 C 301.9 438.7 303.3 436.1 303.8 435.2 C 304.4 434.3 305.1 433 305.4 432.3 C 305.8 431.7 306.4 430.6 306.8 429.8 C 307.2 429.1 308 427.7 308.6 426.7 C 309.5 424.9 311.8 420.9 316.2 413.2 C 317.4 411 319.4 407.5 320.5 405.5 C 321.6 403.5 325.3 397 328.9 391.2 C 332.4 385.3 335.5 380 335.9 379.4 C 336.2 378.8 338 375.9 339.9 372.9 C 341.8 369.9 344.2 366.2 345.1 364.7 C 348.2 359.8 351.4 354.7 354.9 349.4 C 356.7 346.7 359.8 341.8 361.8 338.7 C 368 329.1 382.7 307.5 389 298.6 C 390.4 296.7 393.7 291.9 396.3 288 C 402.5 279.1 408.4 270.9 420.7 254.5 C 423.6 250.6 429.4 243.7 435.2 237.1 C 442 229.4 443 227.3 443 220.6 C 443 213.2 439.6 207.2 432.3 201.6 C 431.7 201.1 431.3 200.6 431.4 200.5 C 431.8 200.1 443.1 201.3 450.8 202.5 C 478.8 207 479.7 207.2 490.3 209.5 C 492.4 209.9 494.8 210.5 495.8 210.8 C 496.7 211.1 499.2 211.7 501.3 212.1 C 508.5 213.7 520.7 217 525.8 218.8 C 526.6 219.1 529.9 220.1 533.2 221.2 C 548.2 225.9 567.8 233.3 581.5 239.4 C 583.5 240.3 585.4 241.2 585.8 241.4 C 586.5 241.7 587.5 241.2 591.4 238.4 C 592.6 237.6 596 235.2 598.8 233.2 C 606.1 228.3 613.6 222.8 614.9 221.5 C 618.3 218.4 618.2 213.2 614.8 209.8 C 613.6 208.6 612.8 208.2 609 207 C 606.5 206.2 602.3 204.7 599.5 203.7 C 596.8 202.6 593.8 201.5 593 201.2 C 562.8 190.8 547.8 186.1 530.3 181.5 C 527.1 180.7 523.2 179.6 521.5 179.2 C 512.8 176.9 509.9 176.2 499 173.7 C 494 172.5 485.4 170.8 477.7 169.3 C 474.8 168.8 471.8 168.2 470.8 168 C 469.2 167.7 467.9 167.5 458.5 166 C 442 163.4 423.3 161.4 402.7 160 C 390 159.1 359 158.8 344.8 159.4 M 615.3 325.4 C 610.2 325.8 602.5 327.7 597.1 329.8 C 579.1 336.9 565.3 348.7 557.8 363.7 C 557 365.4 556.1 367.2 555.8 367.7 C 555.3 368.7 553.3 374.5 552.5 377.2 C 552.2 378.3 551.8 379.7 551.6 380.2 C 551 382.5 549.8 389.8 549.5 393.3 L 549.3 396.2 545.4 401 C 541.8 405.6 533.8 415.3 533.3 415.7 C 533.2 415.8 532.1 417 530.9 418.5 C 522.4 428.3 509.4 441.3 497.6 451.5 C 482.9 464.5 465.7 476 448.7 484.4 C 444.2 486.7 440 488.7 439.5 488.9 C 436.1 490.2 434.5 490.9 431.3 491.9 C 428.2 492.9 426.6 493.4 421 494.9 C 414.9 496.5 403.2 497.5 398.3 496.7 C 392.7 495.8 387.8 493.3 385.5 490.2 C 382.7 486.5 381 481.2 381 476.3 C 381 473.1 382.1 466.4 383.4 461.7 C 384.9 456.3 389.9 443.8 390.8 443 C 391.1 442.7 392.4 442.8 395.2 443 C 402.7 443.8 416.1 442.9 424.3 441.2 C 435.3 438.9 446.2 434.7 456.8 428.7 C 459.2 427.3 462.1 425.6 463.2 424.9 C 478.1 415 492 397.9 498.9 381 C 501.1 375.7 502 372.2 503.2 363.8 C 503.4 361.9 502.5 356.3 501.5 353.3 C 499.9 348.7 498.4 346.4 495.3 343.3 C 489.9 337.9 483.9 334.9 474.9 333.3 C 471.6 332.7 470.3 332.6 464.2 332.8 C 460.3 332.9 456.6 333.1 455.8 333.3 C 455.1 333.5 453.1 333.9 451.3 334.2 C 444.1 335.5 436.8 338.1 428 342.5 C 413.4 349.8 400.7 358.7 387.6 370.9 C 373.8 383.7 360.7 400.6 351 418.2 C 349.7 420.5 348.7 422.5 348.7 422.5 C 348.7 422.6 347.9 424.2 347 426.1 C 346.1 428 345.1 430.3 344.7 431.3 C 344.3 432.2 343.7 433.8 343.3 434.8 C 340.5 441.5 338.6 448.9 337.5 456.7 C 336.5 463.5 337 477.3 338.4 480.9 C 338.5 481.4 338.7 482.1 338.7 482.5 C 338.7 482.9 339.3 484.9 340.2 487 C 343.1 494.2 345.9 498.6 350.5 503.2 C 357.1 509.7 365.8 514.5 375 516.6 C 384 518.7 384.9 518.8 393 518.8 C 400.6 518.7 403.6 518.5 411 517 C 416 516 422.6 514.4 425.2 513.5 C 426.5 513 427.8 512.7 428 512.7 C 428.5 512.7 433.2 510.8 440.5 507.7 C 447.8 504.7 455.6 500.8 460.4 497.9 C 462.4 496.7 464.1 495.7 464.2 495.7 C 464.3 495.7 464.8 495.4 465.3 495 C 465.8 494.7 469 492.5 472.5 490.2 C 490 478.7 511.9 458.5 534 433.5 C 539.4 427.4 545.9 419.5 548.8 415.7 C 551 412.9 551.5 412.3 551.8 412.7 C 552.1 413 553 415.9 554 419.3 C 554.9 422.7 556.9 429.2 558.3 433.7 C 561.7 444 563.5 450.4 564.3 455.5 C 565.2 460.6 565.2 461.9 564.4 462.1 C 564.1 462.2 562.8 462.5 561.5 462.8 C 557.3 463.8 555.2 464.4 552.7 465.2 C 551.3 465.6 548.8 466.3 547.2 466.8 C 536.7 469.9 523.6 475.7 516.2 480.6 C 507.9 486.1 503 491 499.5 497.3 C 499.1 498 498.7 498.7 498.5 499 C 498 499.6 496.8 503.4 496.2 506.5 C 494.6 513.7 496.6 521.1 501.6 527.3 C 504.4 530.7 511.4 534.9 517.2 536.5 C 528.8 539.8 545.4 539.2 557.8 534.9 C 569.2 531 579 525 587.7 516.3 C 597.2 506.9 603.1 497.4 607.4 485 C 609.1 479.9 610.3 472.6 610.3 467.1 C 610.3 464.2 610.5 464 614.7 462.9 C 619.5 461.5 628.3 458.7 634 456.5 C 640.8 453.9 651.4 448.6 658.8 444.1 C 665.5 439.9 666.3 439.4 672.8 434.4 C 677.1 431.1 688.2 420.9 690.1 418.7 C 690.4 418.3 690.8 418 691 418 C 691.4 418 691.3 417.8 692.5 422.3 C 693 424.3 693.5 426.2 693.7 426.7 C 693.8 427.1 694.6 429.6 695.4 432.2 C 696.9 436.6 699.2 444.1 700.2 447.3 C 701.7 452.6 703.3 461.1 703.3 464.4 C 703.3 465.8 703 466.2 701.3 466.5 C 694 468 676.6 473.4 671 476.1 C 657.1 482.5 651 486.3 644.8 492.5 C 640.2 497.1 636.2 503.7 634.6 509.5 C 633.5 513.6 633.6 519.9 634.7 523.3 C 639.2 535.9 652.5 543 671.5 543 C 683.9 543 696.8 539.6 709.2 533 C 713.7 530.6 716.4 528.8 721.9 524.4 C 734.3 514.4 742.9 500.6 747 484.3 C 748.1 480.1 749 474 749 471.2 C 749 470.3 749.1 469.3 749.3 469.1 C 749.4 468.9 751 468.3 752.8 467.8 C 774.6 461.9 797.1 450.5 812.2 437.9 C 816.2 434.6 816.8 433.7 816.8 431.2 C 816.8 427.4 814 424.7 810.4 425.1 C 809.1 425.2 808.2 425.7 805 428.1 C 796.7 434.2 787 440.3 778.1 444.8 C 774.5 446.6 763.2 451.3 762.5 451.3 C 762.4 451.3 761.8 451.5 761.2 451.8 C 760.3 452.2 756.9 453.3 752 454.8 C 751.1 455.1 750 455.3 749.6 455.3 C 748.9 455.3 748.3 454.4 748.3 453.2 C 748.3 450.1 745 437.8 743 433.6 C 742.3 432.1 741.8 430.4 741.6 428.8 C 741.4 427.4 740.9 425.1 740.5 423.7 C 740 422.3 739.4 420.3 739.1 419.3 C 738.3 416.2 737.6 413.9 737.4 412.7 C 737.2 412 736.8 410.4 736.4 409 C 734 400 733.6 389.4 735.5 381 C 736.6 375.8 739.4 369.4 742.5 364.7 C 746.5 358.6 753.6 352.3 759.5 349.5 C 769 345 775.6 344.9 780.1 349 C 784.5 353 784.1 358.4 778.9 365.2 C 776.3 368.6 776.1 369.9 777.9 372.3 C 779.3 374.1 781.1 374.8 784.5 374.8 C 788.4 374.8 790.5 373.9 793.9 370.5 C 795.9 368.5 796.6 367.5 797.9 364.6 C 800.1 360.1 800.5 358.2 800.5 352.8 C 800.4 346.3 798.9 342 795 337.3 C 789.5 330.7 781.6 327.1 769.2 325.5 C 755.1 323.7 739.8 326.9 725.5 334.7 C 707.7 344.4 695.7 359.6 691.2 378.2 C 690.9 379.5 690.5 381 690.3 381.5 C 689.7 383.7 689 390.3 688.8 396.6 L 688.6 403.3 685 406.7 C 675.8 415.7 667.3 422.9 660.5 427.5 C 654.2 431.7 641.4 438.9 637.7 440.3 C 636.4 440.8 628.7 443.9 625.2 445.3 C 619.7 447.6 610.8 450.5 610.2 450.2 C 609.9 450.1 609.5 448.9 609.2 447.4 C 607.4 439.5 602.8 424.6 598.2 412.6 C 597.2 410 596.1 406.4 595.7 404.6 C 595.3 402.9 594.8 400.8 594.6 400 C 594.4 399.2 594.2 396.6 594.1 394.3 C 593.7 384.3 596.4 375.4 602.9 365.7 C 608.1 358 616.9 351 624.9 348.4 C 635 345 644.5 349 644.5 356.5 C 644.5 359.2 643.3 361.5 640.5 364.7 C 637.1 368.5 636.6 370.4 638.6 372.7 C 642 376.7 649.4 375.3 654.9 369.6 C 659.6 364.8 661.2 360.3 660.9 353.1 C 660.6 346.3 659 342.3 654.5 337.1 C 646.9 328.5 631.6 323.8 615.3 325.4 M 470.8 351.5 C 470.7 351.5 469.8 351.8 469 352 C 466.8 352.6 460.9 355.5 458 357.2 C 446.2 364.6 431.3 379.1 420.5 394 C 411.1 406.9 404.2 417.4 398.7 427.3 C 397.2 430 397 430.7 397.9 430.7 C 399 430.7 406.8 429.6 407 429.5 C 407.2 429.4 408 429.2 408.9 429 C 409.8 428.8 411.5 428.5 412.7 428.2 C 413.9 427.9 415.4 427.5 416 427.4 C 419.8 426.5 424.3 425 427.2 423.8 C 430.6 422.4 438.8 418 441.3 416.3 C 456.5 406.1 469.1 390.3 476.2 372.5 C 480.6 361.3 480.7 355 476.4 352.1 C 475.5 351.5 474.8 351.3 473.2 351.4 C 472.1 351.4 471 351.4 470.8 351.5 M 560 477.1 C 555.2 478.4 549.5 480.4 544.3 482.5 C 535.9 486 526.1 492.8 521.1 498.7 C 516.6 503.9 515 507.1 515 511 C 515 515.1 517.3 518.1 521.4 519.2 C 523.6 519.7 523.7 519.7 526.5 519 C 532.9 517.4 539.9 513.1 546.2 506.8 C 552.4 500.6 555.6 496.1 559.7 487.8 C 561.4 484.2 563.7 478.1 563.7 476.9 C 563.7 476.2 563.5 476.2 560 477.1 M 696.3 480.5 C 688.5 483 680.4 486.3 674.7 489.6 C 659.1 498.5 650.4 510.1 653.2 518 C 653.9 520.2 654.9 521.2 657.1 522.3 C 664.7 526.1 677.6 519.1 689.2 504.8 C 692 501.3 695.3 496 697.5 491.5 C 698.9 488.5 701.2 482.3 701.5 480.6 C 701.7 479.4 701.7 479.3 701 479.3 C 700.5 479.4 698.4 479.9 696.3 480.5"/>
+        <path class="tl-word" style="fill:var(--logo-word,#b18637)" d="M 305.7 566 C 287 568.6 271.6 583.7 267.4 603.7 C 266.6 607.7 266.6 619.3 267.5 623.3 C 271.7 642.8 286 657.3 304.2 660.5 C 308 661.2 315.4 661.1 319.2 660.5 C 327.2 659.1 335.2 655 341.2 649.2 L 344 646.6 336.6 639 L 329.3 631.3 326.4 634 C 315.3 644.6 299.1 641.3 291.2 627 C 286.4 618.3 286.5 608.1 291.4 599.3 C 293.1 596.3 297.9 591.4 300.7 589.7 C 304.5 587.5 307 586.9 311.7 586.9 C 315.5 586.9 316 587 318.5 587.9 C 322 589.2 324.6 590.9 327.1 593.4 L 329.1 595.4 335.5 588.7 C 339.1 585.1 342.4 581.6 342.9 581 L 343.8 579.9 341.2 577.5 C 335.2 571.9 328.2 568.2 320.3 566.5 C 317.4 565.9 308.8 565.6 305.7 566 M 402.3 566 C 382.3 568.5 365.7 583 361.2 602.2 C 355.9 624.1 366.1 646 386.4 656.2 C 393.4 659.7 399.7 661.1 408 661.1 C 414.4 661.1 418 660.6 423.2 658.8 C 447.2 650.8 460.8 626.5 454.8 602.1 C 450.5 584.2 436 570.4 417.5 566.6 C 413.7 565.8 406.2 565.5 402.3 566 M 478.6 567.8 C 478.6 567.9 478.5 588.4 478.6 613.5 L 478.7 659 489.8 659 L 501 659 501 640.7 L 501 622.3 512.7 622.3 C 521.9 622.3 524.4 622.2 524.3 621.9 C 524.2 621.7 523 617.3 521.6 612.3 L 519.2 603 510.2 602.9 L 501.2 602.8 501.1 595.1 L 501 587.3 517.5 587.3 L 534 587.3 533.9 577.6 L 533.8 567.8 506.3 567.7 C 491.2 567.7 478.7 567.7 478.6 567.8 M 556.2 567.9 C 556.1 568 556 588.6 556 613.6 L 556 659 567.3 659 L 578.7 659 578.7 640.7 L 578.7 622.3 590.3 622.3 C 596.8 622.3 602 622.3 602 622.3 C 602 622.2 600.8 617.9 599.4 612.7 L 596.8 603.2 587.7 603.1 L 578.7 603 578.7 595.2 L 578.7 587.3 595.1 587.3 L 611.5 587.2 611.5 577.5 L 611.5 567.8 584 567.7 C 568.8 567.7 556.3 567.8 556.2 567.9 M 634.2 568.1 C 634.1 568.3 634 588.9 634.1 613.8 L 634.2 659 663 659 L 691.8 659 691.9 649.3 L 692 639.7 674.2 639.7 L 656.3 639.7 656.4 631.1 L 656.5 622.5 668.1 622.4 C 679 622.3 679.7 622.3 679.6 621.7 C 679.5 621.4 678.3 617.1 677 612.1 L 674.5 603 665.5 602.9 L 656.5 602.8 656.5 595.2 L 656.5 587.5 674.3 587.4 L 692 587.3 691.9 577.6 L 691.8 567.8 663.1 567.7 C 640.1 567.7 634.3 567.7 634.2 568.1 M 714.5 568.1 C 714.4 568.3 714.4 588.9 714.4 613.8 L 714.5 659 743.4 659.1 L 772.3 659.2 772.3 649.4 L 772.3 639.7 754.7 639.7 L 737 639.7 737 631 L 737 622.3 748.5 622.3 C 757.5 622.3 760 622.2 760 621.9 C 760 621.7 759 618 757.9 613.7 C 756.7 609.4 755.6 605.2 755.4 604.4 L 755 603 746 603 L 737 603 737 595.2 L 737 587.3 754.7 587.3 L 772.3 587.3 772.3 577.5 L 772.3 567.7 743.5 567.7 C 720.7 567.7 714.6 567.8 714.5 568.1 M 404.3 587 C 392.7 588.8 383.2 599.7 382.4 612 C 381.6 624.6 390.8 637.1 402.9 639.8 C 412.7 642 423.1 637.5 429 628.4 C 436.2 617.5 434.9 604.2 425.9 594.7 C 421 589.7 415.6 587.1 409 586.8 C 407.5 586.8 405.3 586.8 404.3 587"/>
+      </g>
+    </symbol>
+    <symbol id="tess-leaves" viewBox="489.8 9.7 214.2 181.2">
+      <path fill-rule="evenodd" style="fill:var(--logo-leaves,#b18637)" d="M 604.6 12 C 590.7 21 579.4 31.6 572.5 42 C 569.2 47 565.1 55.4 563.7 60.2 C 561.8 66.8 560.1 78.7 560.5 83.8 C 561.3 95.3 562.5 101.9 565.2 110 C 566.6 114 570.2 122.1 571.8 124.5 C 575.4 130.3 581.8 138.3 582.9 138.6 C 583.1 138.7 583.4 138.4 583.5 137.9 C 584.2 134.5 585.1 129.5 586 124.2 C 586.5 120.7 587.2 116.6 587.5 115.2 C 587.8 113.7 588.3 110.7 588.7 108.5 C 589.1 106.3 589.7 102.7 590.2 100.5 C 591.1 96.4 592.7 88.2 595 76 C 596.3 69.3 596.8 66.6 599 56.7 C 599.6 54 600.3 50.8 600.5 49.5 C 601.1 46.6 603.1 37.7 604.2 33 C 604.6 31.1 605.1 29 605.2 28.4 C 605.4 27.3 606 26.9 606 27.9 C 606 28.6 605.7 30.7 604.5 39.7 C 603.2 48.9 603 49.9 602.3 53.8 C 602 55.9 601.5 59.5 601.2 61.8 C 600.6 66.3 600.5 66.9 598.3 80.3 C 596.6 90.8 594.9 101.7 593.7 110.5 C 593.5 111.7 593.3 112.8 593.2 113 C 593.1 113.1 592.7 115.4 592.4 118 C 591.5 123.7 590.5 130.1 589.8 133.8 C 589 138.7 588.9 140.3 589.4 140.5 C 589.9 140.7 594 138.6 597.8 136.1 C 606.1 130.7 614.2 123.3 619.9 115.7 C 622.2 112.7 625.6 106.9 627.8 102.3 C 630.1 97.5 632.8 87.9 633.7 81.3 C 634.2 77.6 633.9 64.5 633.2 60.7 C 631.9 53.4 629.5 44.8 627.5 40.5 C 624.5 34 621.6 28.3 620.3 26 C 614.1 15.7 609.8 9.7 608.7 9.7 C 608.4 9.7 606.5 10.7 604.6 12 M 490.4 72.9 C 489.8 73.1 489.9 87.5 490.5 92.9 C 492.9 113 499.7 131 510.5 146.3 C 518.9 158.2 532.1 169.8 544.7 176.4 C 551.9 180.1 559.1 182.8 567.5 184.8 C 572.3 186 573 185.9 573.6 184.3 C 574.1 182.6 575 174.6 575 171.3 C 575 168.1 574.2 157.7 573.6 154.2 C 572 143.2 568.5 132.6 563.2 122.2 C 561.1 118 556.4 110.8 553.2 106.8 C 550 102.9 540.9 94 537.5 91.5 C 527 83.7 514.9 77.9 502.8 75 C 501.2 74.6 499.3 74.2 498.7 74 C 498 73.8 496.2 73.5 494.7 73.4 C 493.1 73.2 491.6 73 491.3 72.9 C 491.1 72.8 490.6 72.8 490.4 72.9 M 675.7 99.5 C 668 100.1 658 102.5 650.8 105.5 C 644.6 108.2 641.7 109.7 636.4 112.9 C 624.8 120.1 617.2 126.6 607.7 137.6 C 603.6 142.5 603 143.2 600.4 147.2 C 593.9 156.7 589.6 165.3 586.5 174.4 C 583.3 183.8 583.1 185 584.1 185 C 584.4 185 587.3 182.1 590.6 178.7 C 597.1 172 605.7 163.9 610.2 160.3 C 617.9 154.1 628.1 147.1 629.1 147.4 C 629.5 147.6 624.9 152.3 616.3 160.2 C 612.6 163.7 607.6 168.6 605.2 171 C 602.8 173.5 598.2 178.2 594.9 181.5 C 591.7 184.8 589 187.7 589 187.9 C 589 188.5 589.6 188.6 595 189.1 C 611.7 190.9 624.8 189.2 639.3 183.5 C 652 178.4 661.1 172.2 672.4 161 C 683.3 150.1 691.7 137.2 698 121.8 C 698.3 120.8 699 119.3 699.3 118.3 C 700.5 115.4 703 107.6 703.5 105 C 704 102.9 704 102.5 703.5 102.1 C 703.1 101.6 701.4 101.3 694 100.1 C 690.6 99.6 679.6 99.3 675.7 99.5 M 536.7 105 C 536.7 105.5 537.8 107 540.4 110.1 C 546 116.7 554.7 131.7 559.5 143.3 C 563.3 152.4 563.7 153.8 566.3 164.5 C 566.9 166.9 567.7 170 568.2 171.5 C 568.6 173 569.2 175.1 569.6 176.3 C 569.9 177.5 570.3 178.5 570.5 178.4 C 571.1 178.3 570.8 167.5 570.2 164.3 C 568.9 157.8 566.5 149.9 564.2 144.3 C 562.3 139.8 557.8 131.4 554.7 126.3 C 550.5 119.7 547.9 116.1 542.5 110.2 C 538.5 105.7 536.7 104.1 536.7 105"/>
+    </symbol>
+    <symbol id="tess-buna" viewBox="8.5 -72.4 122.2 72.4">
+      <path class="tl-buna" d="M74.7-19.2L71.4-19.2Q67.5-19.2 65.2-21.2Q62.9-23.2 61.7-25.9L56.4-25.9L56.4 0L41.6 0L41.6-48.1Q41.6-53.9 39.5-57Q37.4-60.1 32.3-60.1Q28.9-60.1 26.9-58.6Q24.9-57 24.1-54.3Q23.3-51.6 23.3-48L23.3 0L8.5 0L8.5-48.8Q8.5-55.8 11-61.1Q13.4-66.4 18.7-69.4Q24-72.4 32.7-72.4Q40.9-72.4 46.2-69.6Q51.4-66.8 53.9-61.5Q56.4-56.1 56.4-48.6L56.4-36.1L61.7-36.1Q62.9-38.8 65.2-40.8Q67.5-42.8 71.4-42.8L74.7-42.8L72-31L74.7-19.2M99.8-24L81.7-24L81.7-30.7Q81.7-42.4 84.2-50.3Q86.7-58.2 91.2-62.8Q95.7-67.4 101.8-69.4Q107.9-71.4 115.1-71.4L126.8-71.4L130.7-53.9L127.9-53.9Q125.1-53.9 122.3-55.4Q119.4-56.9 117.8-61.2L115.3-61.2Q108.9-61.2 104.8-58.4Q100.6-55.6 98.6-49.2Q96.8-43.8 96.6-35.3L114.6-35.3L114.6 0L99.8 0"/>
+    </symbol>
+  </svg>
+  <!-- @logo-sprite:end -->
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M5.5 7.5h13l-1.6 12.6a1.2 1.2 0 0 1-1.2 1H8.3a1.2 1.2 0 0 1-1.2-1L5.5 7.5Z"/><path d="M4.5 7.5h15M7.2 4.2h9.6l1.7 3.3h-13l1.7-3.3Z"/><path d="M6.4 12h11.2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.8h2.6l1.4 4.3-1.9 1.3a10.5 10.5 0 0 0 5.9 5.9l1.3-1.9 4.3 1.4v2.6a2 2 0 0 1-2.2 2A15.6 15.6 0 0 1 4.6 6a2 2 0 0 1 2-2.2Z"/></symbol>
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21 4.5 2.8 11.4l5.6 2.1L19 7l-8.6 8.1v4.6l3.1-3.3 4.4 3.1L21 4.5Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8 12 3.5 16.5 8"/><path d="M5 12.5v6A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path d="M8 8.5 4.5 12 8 15.5M16 8.5l3.5 3.5-3.5 3.5M4.5 12h15"/></symbol>
+    <symbol id="i-locate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-lid" viewBox="0 0 24 24"><path d="M4 14.5h16M5.5 14.5l1-3.5h11l1 3.5M8.5 11l.8-2.5h5.4l.8 2.5"/><path d="M6.5 18h11"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14.5 4.5h5v5M9.5 19.5h-5v-5M19.5 4.5l-6 6M4.5 19.5l6-6"/></symbol>
+  </svg>
+
+  <div class="placeholder-banner" data-placeholder-banner hidden>
+    <p><strong>Preview.</strong> The menu, prices, stock, address and hours are placeholders. Edit <code>content.js</code> to make them real.</p>
+    <button class="placeholder-banner__close" type="button" data-placeholder-close aria-label="Hide this notice"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="#top">
+        <svg class="brand__logo" viewBox="0 0 685.1 659.5" role="img" aria-label="Tess Coffee, back to the top"><use href="#tess-logo"/></svg>
+      </a>
+      <nav class="dock" aria-label="Sections">
+        <a href="#today" data-nav="today"><span class="dock__dot" aria-hidden="true"></span>Today</a>
+        <a href="#menu" data-nav="menu">Menu</a>
+        <a href="#inside" data-nav="inside">Inside</a>
+        <a href="#visit" data-nav="visit">Find us</a>
+      </nav>
+      <a class="open-pill" href="#visit" data-open-pill>
+        <span class="open-pill__dot" aria-hidden="true"></span><span data-open-short>Hours</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO ======================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__copy">
+          <svg class="hero__logo" viewBox="0 0 685.1 659.5" role="img" aria-label="Tess Coffee"><use href="#tess-logo"/></svg>
+          <p class="eyebrow"><span data-area>Addis Ababa</span> · Specialty coffee</p>
+          <h1 class="hero__title" id="hero-title">Coffee from where coffee <em>began</em>.</h1>
+          <p class="hero__lede">Ethiopian single origins on the espresso bar, the slow bar and the jebena, poured in one narrow, lamp-lit room.</p>
+          <p class="hero__status" data-open-long aria-live="polite"></p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="#menu">See the menu <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="#visit"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Find us</a>
+          </div>
+        </div>
+
+        <div class="stage" data-stage>
+          <div class="stage__arch">
+            <div class="stage__glow" aria-hidden="true"></div>
+            <button class="lamp" type="button" data-lamp aria-pressed="true">
+              <span class="sr-only">The lamp above the cup. Press to switch it off or on.</span>
+              <svg class="lamp__svg" viewBox="0 0 140 120" aria-hidden="true">
+                <path class="lamp__cord" d="M70 0v54"/>
+                <path class="lamp__cap" d="M63 52h14l3 12H60z"/>
+                <ellipse class="lamp__shade" cx="70" cy="68" rx="58" ry="7.5"/>
+                <ellipse class="lamp__bulb" cx="70" cy="72" rx="30" ry="3.2"/>
+              </svg>
+            </button>
+            <div class="stage__cone" aria-hidden="true"></div>
+            <canvas class="stage__canvas" data-cup-canvas tabindex="0" role="img"
+              aria-label="The Tess Coffee takeaway cup, rotating slowly. Drag it, or use the left and right arrow keys, to spin it."></canvas>
+            <picture class="stage__fallback" data-cup-fallback hidden>
+              <source type="image/avif" srcset="assets/img/photos/poster-cup-480.avif 480w, assets/img/photos/poster-cup-800.avif 800w" sizes="(min-width: 960px) 420px, 80vw">
+              <source type="image/webp" srcset="assets/img/photos/poster-cup-480.webp 480w, assets/img/photos/poster-cup-800.webp 800w" sizes="(min-width: 960px) 420px, 80vw">
+              <img src="assets/img/photos/poster-cup-800.jpg" width="1152" height="1843" loading="lazy" decoding="async" alt="The Tess Coffee takeaway cup: deep green, with the gold leaf logo and a gold Ethiopian pattern around the base.">
+            </picture>
+            <div class="stage__bottom">
+              <p class="stage__hint" data-cup-hint><svg class="icon" aria-hidden="true"><use href="#i-drag"/></svg> Drag to spin</p>
+              <p class="stage__readout" data-cup-readout aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="cupctl">
+            <fieldset class="cupctl__group">
+              <legend class="cupctl__legend">Pick a drink</legend>
+              <div class="chips" data-cup-drinks></div>
+            </fieldset>
+            <div class="cupctl__row">
+              <fieldset class="cupctl__group">
+                <legend class="cupctl__legend">Cup size</legend>
+                <div class="seg" data-cup-sizes></div>
+              </fieldset>
+              <button class="btn btn--small btn--outline" type="button" data-cup-lid aria-pressed="false">
+                <svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span>Peek inside</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tibeb tibeb--hero" aria-hidden="true"></div>
+    </section>
+
+    <!-- TODAY ======================================================= -->
+    <section class="today dark" id="today" aria-labelledby="today-title">
+      <div class="led" aria-hidden="true"></div>
+      <div class="container">
+        <header class="today__head">
+          <div>
+            <p class="eyebrow eyebrow--light"><span class="live-dot" aria-hidden="true"></span>From the counter</p>
+            <h2 class="section-title" id="today-title">On the bar <em>today</em></h2>
+          </div>
+          <div class="today__meta">
+            <p class="today__clock"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-shop-clock></span></p>
+            <p class="today__updated" data-updated></p>
+          </div>
+        </header>
+        <p class="today__summary" data-today-summary aria-live="polite"></p>
+        <div class="filters" role="group" aria-label="Filter the shelves" data-board-filters>
+          <button type="button" aria-pressed="true" data-filter="all">Everything</button>
+          <button type="button" aria-pressed="false" data-filter="in">Available</button>
+          <button type="button" aria-pressed="false" data-filter="out">Sold out</button>
+        </div>
+        <div class="shelves" data-shelves></div>
+      </div>
+    </section>
+
+    <!-- MENU ======================================================== -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <header class="menu__head">
+          <div>
+            <p class="eyebrow" data-currency-note>Prices in Ethiopian birr</p>
+            <h2 class="section-title" id="menu-title">The <em>menu</em></h2>
+          </div>
+          <div class="sizes-legend" data-sizes-legend></div>
+        </header>
+      </div>
+
+      <div class="container menu__filters-row">
+        <label class="search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <span class="sr-only">Search the menu</span>
+          <input type="search" placeholder="Search: latte, vegan, cake…" autocomplete="off" data-menu-search>
+        </label>
+        <label class="switch">
+          <input type="checkbox" data-available-only>
+          <span class="switch__track" aria-hidden="true"></span>
+          <span>Only what's available now</span>
+        </label>
+      </div>
+
+      <div class="menu__tools">
+        <div class="container">
+          <nav class="menu__cats" aria-label="Menu sections" data-menu-cats></nav>
+        </div>
+      </div>
+
+      <div class="container">
+        <p class="menu__empty" data-menu-empty hidden></p>
+        <div class="menu__body" data-menu></div>
+        <noscript><p class="menu__noscript">Turn on JavaScript to see the menu, or ask at the counter.</p></noscript>
+      </div>
+    </section>
+
+    <!-- INSIDE ====================================================== -->
+    <section class="inside dark" id="inside" aria-labelledby="inside-title">
+      <div class="led" aria-hidden="true"></div>
+      <div class="container inside__grid">
+        <div class="inside__intro">
+          <p class="eyebrow eyebrow--light">Step inside</p>
+          <h2 class="section-title" id="inside-title">A long, narrow room <em>made for lingering</em>.</h2>
+          <p class="inside__lede">Pendant lamps, patchwork chairs, a slow bar that hisses and bubbles. Tap the gold dots to look around.</p>
+          <div class="spot-card" data-spot-card aria-live="polite">
+            <p class="spot-card__kicker">Tap a dot</p>
+            <h3 class="spot-card__title">The slow bar</h3>
+            <p class="spot-card__text">This is the counter after dark. Pick any gold dot on the photo to see what's what.</p>
+          </div>
+        </div>
+
+        <figure class="tour" data-tour>
+          <div class="tour__frame">
+            <picture>
+              <source type="image/avif" srcset="assets/img/photos/slow-bar-480.avif 480w, assets/img/photos/slow-bar-800.avif 800w, assets/img/photos/slow-bar-1200.avif 1200w, assets/img/photos/slow-bar-1600.avif 1600w" sizes="(min-width: 960px) 560px, 100vw">
+              <source type="image/webp" srcset="assets/img/photos/slow-bar-480.webp 480w, assets/img/photos/slow-bar-800.webp 800w, assets/img/photos/slow-bar-1200.webp 1200w, assets/img/photos/slow-bar-1600.webp 1600w" sizes="(min-width: 960px) 560px, 100vw">
+              <img src="assets/img/photos/slow-bar-800.jpg" width="1920" height="2400" loading="lazy" decoding="async"
+                alt="The Tess slow bar at night: glass siphon brewers and pour-over drippers on a granite counter, a pound cake under a glass dome, and a colourful Ethiopian painting lit by pendant lamps.">
+            </picture>
+            <button class="spot" type="button" style="--x:86%;--y:46%" data-spot
+              data-title="The siphon" data-text="Two glass globes, a little flame and a minute of theatre. Any slow-bar origin can be brewed this way." data-link="#cat-slow" data-link-label="See the slow bar">
+              <span class="sr-only">The siphon</span></button>
+            <button class="spot" type="button" style="--x:55%;--y:56%" data-spot
+              data-title="Pour-over, by hand" data-text="Glass drippers on wooden collars. Each cup is poured slowly, in circles, while you watch." data-link="#cat-slow" data-link-label="See the slow bar">
+              <span class="sr-only">The pour-over drippers</span></button>
+            <button class="spot" type="button" style="--x:21%;--y:71%" data-spot data-item="pound-cake"
+              data-title="Under the dome" data-text="Today's pound cake sits on the counter under glass. When it's gone, it's gone." data-link="#item-pound-cake" data-link-label="Find it on the menu">
+              <span class="sr-only">The cake under the glass dome</span></button>
+            <button class="spot" type="button" style="--x:54%;--y:27%" data-spot
+              data-title="Art on the walls" data-text="Bold Ethiopian paintings in gold frames run the length of the room." >
+              <span class="sr-only">The painting</span></button>
+            <button class="spot" type="button" style="--x:27%;--y:30%" data-spot
+              data-title="The lamps" data-text="Flat pendant lamps hang over the bar and the tables. There's one above the cup at the top of this page, too. Try tapping it." data-link="#top" data-link-label="Go to the cup">
+              <span class="sr-only">The pendant lamps</span></button>
+            <button class="spot" type="button" style="--x:27%;--y:52%" data-spot
+              data-title="Patchwork chairs" data-text="No two are alike. Pull one up to a round table by the glass front." >
+              <span class="sr-only">The patchwork chairs</span></button>
+          </div>
+        </figure>
+      </div>
+
+      <div class="strip" data-strip>
+        <div class="container strip__head">
+          <h3 class="strip__title">More of the room</h3>
+          <div class="strip__nav">
+            <button class="icon-btn" type="button" data-strip-prev aria-label="Scroll photos left"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="icon-btn" type="button" data-strip-next aria-label="Scroll photos right"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+        <ul class="strip__list" data-strip-list>
+          <li class="strip__item" style="--ar: 1440 / 1800">
+            <button class="strip__btn" type="button" data-lightbox="counter" data-w="1440" data-h="1800" data-caption="The counter: La Cimbali, coffee on the shelves, and the logo on warm wood.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/counter-480.avif 480w, assets/img/photos/counter-800.avif 800w" sizes="(min-width: 960px) 320px, 70vw">
+                <source type="image/webp" srcset="assets/img/photos/counter-480.webp 480w, assets/img/photos/counter-800.webp 800w" sizes="(min-width: 960px) 320px, 70vw">
+                <img src="assets/img/photos/counter-800.jpg" width="1440" height="1800" loading="lazy" decoding="async"
+                  alt="The wood-slatted counter with the white Tess Coffee logo, a La Cimbali espresso machine and shelves of coffee bags behind it.">
+              </picture>
+              <span class="strip__cap">The counter <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item" style="--ar: 1 / 1">
+            <button class="strip__btn" type="button" data-lightbox="corner" data-w="1920" data-h="1920" data-caption="The patchwork corner, after dark.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/corner-480.avif 480w, assets/img/photos/corner-800.avif 800w" sizes="(min-width: 960px) 400px, 85vw">
+                <source type="image/webp" srcset="assets/img/photos/corner-480.webp 480w, assets/img/photos/corner-800.webp 800w" sizes="(min-width: 960px) 400px, 85vw">
+                <img src="assets/img/photos/corner-800.jpg" width="1920" height="1920" loading="lazy" decoding="async"
+                  alt="A corner of the café in the evening: patchwork chairs around small round tables under flat pendant lamps.">
+              </picture>
+              <span class="strip__cap">Patchwork corner <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item" style="--ar: 1536 / 1920">
+            <button class="strip__btn" type="button" data-lightbox="bar-ledge" data-w="1536" data-h="1920" data-caption="The long bar, with green velvet stools.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/bar-ledge-480.avif 480w, assets/img/photos/bar-ledge-800.avif 800w" sizes="(min-width: 960px) 320px, 70vw">
+                <source type="image/webp" srcset="assets/img/photos/bar-ledge-480.webp 480w, assets/img/photos/bar-ledge-800.webp 800w" sizes="(min-width: 960px) 320px, 70vw">
+                <img src="assets/img/photos/bar-ledge-800.jpg" width="1536" height="1920" loading="lazy" decoding="async"
+                  alt="The long bar along the wall with green velvet stools, pendant lamps and a framed painting.">
+              </picture>
+              <span class="strip__cap">The long bar <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="tibeb tibeb--dark" aria-hidden="true"></div>
+    </section>
+
+    <!-- VISIT ======================================================= -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="container">
+        <header class="visit__head">
+          <p class="eyebrow">Find us</p>
+          <h2 class="section-title" id="visit-title">Come <em>find us</em>.</h2>
+        </header>
+
+        <div class="visit__grid">
+          <div class="map-card">
+            <div class="map" data-map>
+              <div class="map__placeholder" data-map-placeholder>
+                <p>Loading the map…</p>
+              </div>
+              <div class="map__pin" data-map-pin aria-hidden="true">
+                <span class="map__pulse"></span>
+                <svg class="map__pin-svg" viewBox="0 0 48 60"><path d="M24 58s20-17.6 20-34A20 20 0 0 0 4 24c0 16.4 20 34 20 34Z"/></svg>
+                <svg class="map__pin-leaves" viewBox="0 0 214.2 181.2"><use href="#tess-leaves"/></svg>
+              </div>
+              <button class="map__explore btn btn--small" type="button" data-map-explore hidden>
+                <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg> Explore the map
+              </button>
+            </div>
+            <div class="map-actions">
+              <a class="btn btn--primary" data-dir-google target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-route"/></svg> Directions</a>
+              <a class="btn btn--outline" data-dir-apple target="_blank" rel="noopener">Apple Maps</a>
+              <button class="btn btn--outline" type="button" data-copy-address><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> <span>Copy address</span></button>
+              <button class="btn btn--outline" type="button" data-distance><svg class="icon" aria-hidden="true"><use href="#i-locate"/></svg> <span>How far am I?</span></button>
+            </div>
+            <p class="map-note" data-distance-out aria-live="polite"></p>
+          </div>
+
+          <div class="visit__info">
+            <address class="address" data-address></address>
+            <p class="landmark"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span data-landmark></span></p>
+
+            <div class="hours" data-hours>
+              <div class="hours__head">
+                <h3 class="hours__title">Opening hours</h3>
+                <label class="switch switch--small" title="Ethiopian time counts the hours from dawn: 7 in the morning is 1 o'clock.">
+                  <input type="checkbox" data-eth-clock>
+                  <span class="switch__track" aria-hidden="true"></span>
+                  <span>Ethiopian clock</span>
+                </label>
+              </div>
+              <p class="hours__status" data-open-detail></p>
+              <table class="hours__table">
+                <caption class="sr-only">Opening hours by day</caption>
+                <tbody data-hours-rows></tbody>
+              </table>
+              <p class="hours__special" data-hours-special></p>
+            </div>
+
+            <ul class="contact" data-contact></ul>
+          </div>
+        </div>
+
+        <div class="route">
+          <h3 class="route__title">The last few minutes</h3>
+          <div class="route__list">
+            <ol class="route__steps" data-directions></ol>
+          </div>
+          <figure class="door">
+            <picture>
+              <source type="image/avif" srcset="assets/img/photos/door-480.avif 480w, assets/img/photos/door-800.avif 800w, assets/img/photos/door-1200.avif 1200w" sizes="(min-width: 960px) 380px, 90vw">
+              <source type="image/webp" srcset="assets/img/photos/door-480.webp 480w, assets/img/photos/door-800.webp 800w, assets/img/photos/door-1200.webp 1200w" sizes="(min-width: 960px) 380px, 90vw">
+              <img src="assets/img/photos/door-800.jpg" width="1651" height="2064" loading="lazy" decoding="async"
+                alt="The Tess Coffee glass door with a large coffee cup painted on it, looking in toward the counter and patchwork chairs.">
+            </picture>
+            <span class="door__ring" aria-hidden="true"></span>
+            <figcaption><span class="door__badge">You've arrived</span> Look for the coffee cup on the glass.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer dark" data-footer>
+    <div class="tibeb tibeb--dark tibeb--top" aria-hidden="true"></div>
+    <div class="foot-aura" aria-hidden="true">
+      <span class="foot-aura__glow"></span>
+      <svg class="foot-aura__leaves" viewBox="0 0 214.2 181.2" style="--depth: 0.5"><use href="#tess-leaves"/></svg>
+      <span class="foot-aura__orb foot-aura__orb--leaf" style="--depth: 0.8"></span>
+      <span class="foot-aura__orb foot-aura__orb--gold" style="--depth: 1.3"></span>
+      <span class="foot-aura__orb foot-aura__orb--cherry" style="--depth: 2"></span>
+      <span class="foot-aura__orb foot-aura__orb--cherry-sm" style="--depth: 1.6"></span>
+    </div>
+
+    <div class="container site-footer__inner">
+      <div class="glass glass--brand" data-glass>
+        <svg class="site-footer__logo" viewBox="0 0 685.1 659.5" role="img" aria-label="Tess Coffee"><use href="#tess-logo"/></svg>
+        <p class="site-footer__sign">See you at the bar.</p>
+        <p class="site-footer__status" data-footer-status></p>
+      </div>
+      <div class="glass" data-glass>
+        <h2 class="site-footer__h">Visit</h2>
+        <p data-footer-address></p>
+        <div class="glass__actions">
+          <a class="glass-pill" href="#visit"><svg class="icon" aria-hidden="true"><use href="#i-route"/></svg>Directions</a>
+          <button class="glass-pill" type="button" data-copy-address><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
+        </div>
+      </div>
+      <div class="glass" data-glass>
+        <h2 class="site-footer__h">Today</h2>
+        <p data-footer-hours></p>
+        <div class="glass__actions">
+          <a class="glass-pill" href="#today"><svg class="icon" aria-hidden="true"><use href="#i-cup"/></svg>What's in stock</a>
+        </div>
+      </div>
+      <div class="glass" data-glass>
+        <h2 class="site-footer__h">Say hello</h2>
+        <ul class="site-footer__links" data-footer-contact></ul>
+        <div class="glass__actions">
+          <button class="glass-pill glass-pill--gold" type="button" data-share><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>Send Tess to a friend</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container site-footer__base">
+      <p>© <span data-year>2026</span> Tess Coffee</p>
+      <p class="site-footer__placeholder" data-placeholder-footnote hidden>Menu, prices, stock, address and hours shown are placeholders.</p>
+      <a class="to-top" href="#top" data-to-top aria-label="Back to the top">
+        <svg class="to-top__ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="to-top__track" cx="24" cy="24" r="22"/><circle class="to-top__fill" cx="24" cy="24" r="22"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#i-cup"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" data-lightbox-dialog aria-label="Photo viewer">
+    <div class="lightbox__inner">
+      <button class="icon-btn lightbox__close" type="button" data-lightbox-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <figure class="lightbox__figure">
+        <picture data-lightbox-picture></picture>
+        <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+      </figure>
+      <button class="icon-btn lightbox__prev" type="button" data-lightbox-prev aria-label="Previous photo"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button class="icon-btn lightbox__next" type="button" data-lightbox-next aria-label="Next photo"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+  </dialog>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>
