@@ -27,8 +27,10 @@ The sections are numbered inside the file:
   4. hours ...... opening hours and holidays
   5. sizes ...... cup sizes (Small / Medium / Large, in ml)
   6. today ...... STOCK: what is sold out or running low. Update daily.
-  7. menu ....... the full MENU and PRICES
+  7. menu ....... the full MENU and PRICES (from your printed menu)
   8. board ...... which menu sections appear on "On the bar today"
+  9. tours ...... the FULL-DAY COFFEE TOUR: price, the day's activities,
+                  and the phone number requests are sent to. show: false hides it.
 
 Anything marked PLACEHOLDER is invented. Replace it with the real details,
 then set showPlaceholderBanner to false.

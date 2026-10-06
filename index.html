@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Tess Coffee · Ethiopian specialty coffee</title>
-  <meta name="description" content="Tess Coffee: Ethiopian single origins on the espresso bar, the slow bar and the jebena. See today's menu, what's in stock, cup prices and how to find us.">
+  <meta name="description" content="Tess Coffee: Ethiopian coffee and breakfast. See the full menu and prices, what's in stock today, our coffee tours and how to find us.">
   <meta name="theme-color" content="#f6efe2">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -69,10 +69,17 @@
     <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
     <symbol id="i-lid" viewBox="0 0 24 24"><path d="M4 14.5h16M5.5 14.5l1-3.5h11l1 3.5M8.5 11l.8-2.5h5.4l.8 2.5"/><path d="M6.5 18h11"/></symbol>
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14.5 4.5h5v5M9.5 19.5h-5v-5M19.5 4.5l-6 6M4.5 19.5l6-6"/></symbol>
+    <symbol id="i-milk" viewBox="0 0 24 24"><path d="M9 3.6h6"/><path d="M9.8 3.6v2.6L7.3 9.3v9.5c0 .9.7 1.6 1.6 1.6h6.2c.9 0 1.6-.7 1.6-1.6V9.3l-2.5-3.1V3.6"/><path d="M7.3 12.2h9.4M7.3 16.4h9.4"/><path d="M7.3 10.4H5.6v3.4h1.7M16.7 10.4h1.7v3.4h-1.7"/></symbol>
+    <symbol id="i-run" viewBox="0 0 24 24"><circle cx="14.6" cy="4.3" r="1.9"/><path d="M13.3 7.6l-2.5 5.1"/><path d="M7.8 10.8l2.2-2.4 3.3-.8 2.3 2.5 2.7-.5"/><path d="M10.8 12.7l3.5 2-1.1 5"/><path d="M10.8 12.7l-2.1 3.7-3.9 1"/></symbol>
+    <symbol id="i-horse" viewBox="0 0 24 24"><path d="M17.4 21v-7.6c0-3.7-1.6-6.8-4.3-8.6l.3-2.2-2.2 1.8C8.4 5 6.1 7.7 4.8 11.3c-.3 1 .3 2 1.3 2.1l2.4.2c1.1.1 1.9.7 2.3 1.6.6 1.9.1 3.9-1.3 5.8"/><path d="M13.3 4.8c1.9 1.6 3 3.9 3.2 6.6"/><circle cx="10.7" cy="8.4" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.5" cy="16.4" r="3.7"/><circle cx="18.5" cy="16.4" r="3.7"/><path d="M5.5 16.4 9 9.2h7l2.5 7.2"/><path d="M5.5 16.4H11l5-7.2M11 16.4 9 9.2"/><path d="M7.6 9.2h3M16 9.2l-.7-2.4h2.4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6l4.3 4.3L19 7.2"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M4.6 5.2h14.8a1.3 1.3 0 0 1 1.3 1.3v8.7a1.3 1.3 0 0 1-1.3 1.3H10l-4.6 3.7v-3.7h-.8a1.3 1.3 0 0 1-1.3-1.3V6.5a1.3 1.3 0 0 1 1.3-1.3Z"/><path d="M8 9.6h8M8 12.6h5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3.6a8.4 8.4 0 0 0-7.3 12.6L3.6 20.4l4.3-1.1A8.4 8.4 0 1 0 12 3.6Z"/><path d="M9.2 8.6c.3 2.9 2.4 5.3 5.6 6.2l1-1.4-1.9-1-1 .8c-1.1-.5-1.9-1.4-2.4-2.5l.8-.9-.9-2-1.2.8Z"/></symbol>
   </svg>
 
-  <div class="placeholder-banner" data-placeholder-banner hidden>
-    <p><strong>Preview.</strong> The menu, prices, stock, address and hours are placeholders. Edit <code>content.js</code> to make them real.</p>
+  <div class="placeholder-banner" role="region" aria-label="Preview notice" data-placeholder-banner hidden>
+    <p><strong>Preview.</strong> The menu, prices and coffee tour are real. The address, hours and today's stock are placeholders. Edit <code>content.js</code> to make them real.</p>
     <button class="placeholder-banner__close" type="button" data-placeholder-close aria-label="Hide this notice"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
   </div>
 
@@ -85,6 +92,7 @@
         <a href="#today" data-nav="today"><span class="dock__dot" aria-hidden="true"></span>Today</a>
         <a href="#menu" data-nav="menu">Menu</a>
         <a href="#inside" data-nav="inside">Inside</a>
+        <a href="#tours" data-nav="tours">Tours</a>
         <a href="#visit" data-nav="visit">Find us</a>
       </nav>
       <a class="open-pill" href="#visit" data-open-pill>
@@ -102,7 +110,7 @@
           <svg class="hero__logo" viewBox="0 0 685.1 659.5" role="img" aria-label="Tess Coffee"><use href="#tess-logo"/></svg>
           <p class="eyebrow"><span data-area>Addis Ababa</span> · Specialty coffee</p>
           <h1 class="hero__title" id="hero-title">Coffee from where coffee <em>began</em>.</h1>
-          <p class="hero__lede">Ethiopian single origins on the espresso bar, the slow bar and the jebena, poured in one narrow, lamp-lit room.</p>
+          <p class="hero__lede">Ethiopian coffee from a quick macchiato to a slow filter, with chechebsa, foul and eggs for breakfast, in one narrow, lamp-lit room.</p>
           <p class="hero__status" data-open-long aria-live="polite"></p>
           <div class="hero__ctas">
             <a class="btn btn--primary" href="#menu">See the menu <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -142,7 +150,7 @@
               <div class="chips" data-cup-drinks></div>
             </fieldset>
             <div class="cupctl__row">
-              <fieldset class="cupctl__group">
+              <fieldset class="cupctl__group" data-cup-sizes-group>
                 <legend class="cupctl__legend">Cup size</legend>
                 <div class="seg" data-cup-sizes></div>
               </fieldset>
@@ -190,13 +198,17 @@
           </div>
           <div class="sizes-legend" data-sizes-legend></div>
         </header>
+        <div class="featured-wrap" data-featured-wrap hidden>
+          <h3 class="featured__title">From the front of our menu</h3>
+          <ul class="featured" data-featured></ul>
+        </div>
       </div>
 
       <div class="container menu__filters-row">
         <label class="search">
           <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
           <span class="sr-only">Search the menu</span>
-          <input type="search" placeholder="Search: latte, vegan, cake…" autocomplete="off" data-menu-search>
+          <input type="search" placeholder="Search: macchiato, foul, cake…" autocomplete="off" data-menu-search>
         </label>
         <label class="switch">
           <input type="checkbox" data-available-only>
@@ -239,16 +251,16 @@
               <source type="image/avif" srcset="assets/img/photos/slow-bar-480.avif 480w, assets/img/photos/slow-bar-800.avif 800w, assets/img/photos/slow-bar-1200.avif 1200w, assets/img/photos/slow-bar-1600.avif 1600w" sizes="(min-width: 960px) 560px, 100vw">
               <source type="image/webp" srcset="assets/img/photos/slow-bar-480.webp 480w, assets/img/photos/slow-bar-800.webp 800w, assets/img/photos/slow-bar-1200.webp 1200w, assets/img/photos/slow-bar-1600.webp 1600w" sizes="(min-width: 960px) 560px, 100vw">
               <img src="assets/img/photos/slow-bar-800.jpg" width="1920" height="2400" loading="lazy" decoding="async"
-                alt="The Tess slow bar at night: glass siphon brewers and pour-over drippers on a granite counter, a pound cake under a glass dome, and a colourful Ethiopian painting lit by pendant lamps.">
+                alt="The Tess slow bar at night: glass siphon brewers and pour-over drippers on a granite counter, a loaf cake under a glass dome, and a colourful Ethiopian painting lit by pendant lamps.">
             </picture>
             <button class="spot" type="button" style="--x:86%;--y:46%" data-spot
-              data-title="The siphon" data-text="Two glass globes, a little flame and a minute of theatre. Any slow-bar origin can be brewed this way." data-link="#cat-slow" data-link-label="See the slow bar">
+              data-title="The siphon" data-text="Two glass globes, a little flame and a minute of theatre at the bar." data-link="#cat-coffee" data-link-label="See the coffee menu">
               <span class="sr-only">The siphon</span></button>
-            <button class="spot" type="button" style="--x:55%;--y:56%" data-spot
-              data-title="Pour-over, by hand" data-text="Glass drippers on wooden collars. Each cup is poured slowly, in circles, while you watch." data-link="#cat-slow" data-link-label="See the slow bar">
+            <button class="spot" type="button" style="--x:55%;--y:56%" data-spot data-item="filter-coffee"
+              data-title="Pour-over, by hand" data-text="Glass drippers on wooden collars. Each cup is poured slowly, in circles, while you watch." data-link="#item-filter-coffee" data-link-label="Find it on the menu">
               <span class="sr-only">The pour-over drippers</span></button>
-            <button class="spot" type="button" style="--x:21%;--y:71%" data-spot data-item="pound-cake"
-              data-title="Under the dome" data-text="Today's pound cake sits on the counter under glass. When it's gone, it's gone." data-link="#item-pound-cake" data-link-label="Find it on the menu">
+            <button class="spot" type="button" style="--x:21%;--y:71%" data-spot data-item="english-cake"
+              data-title="Under the dome" data-text="Cake by the slice waits on the counter under glass. When it's gone, it's gone." data-link="#item-english-cake" data-link-label="Find it on the menu">
               <span class="sr-only">The cake under the glass dome</span></button>
             <button class="spot" type="button" style="--x:54%;--y:27%" data-spot
               data-title="Art on the walls" data-text="Bold Ethiopian paintings in gold frames run the length of the room." >
@@ -272,15 +284,26 @@
           </div>
         </div>
         <ul class="strip__list" data-strip-list>
-          <li class="strip__item" style="--ar: 1440 / 1800">
-            <button class="strip__btn" type="button" data-lightbox="counter" data-w="1440" data-h="1800" data-caption="The counter: La Cimbali, coffee on the shelves, and the logo on warm wood.">
+          <li class="strip__item" style="--ar: 1728 / 2160">
+            <button class="strip__btn" type="button" data-lightbox="counter-logo" data-w="1728" data-h="2160" data-caption="The counter: the La Cimbali, coffee on the shelves, and the Tess logo on warm wood.">
               <picture>
-                <source type="image/avif" srcset="assets/img/photos/counter-480.avif 480w, assets/img/photos/counter-800.avif 800w" sizes="(min-width: 960px) 320px, 70vw">
-                <source type="image/webp" srcset="assets/img/photos/counter-480.webp 480w, assets/img/photos/counter-800.webp 800w" sizes="(min-width: 960px) 320px, 70vw">
-                <img src="assets/img/photos/counter-800.jpg" width="1440" height="1800" loading="lazy" decoding="async"
-                  alt="The wood-slatted counter with the white Tess Coffee logo, a La Cimbali espresso machine and shelves of coffee bags behind it.">
+                <source type="image/avif" srcset="assets/img/photos/counter-logo-480.avif 480w, assets/img/photos/counter-logo-800.avif 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <source type="image/webp" srcset="assets/img/photos/counter-logo-480.webp 480w, assets/img/photos/counter-logo-800.webp 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <img src="assets/img/photos/counter-logo-800.jpg" width="1728" height="2160" loading="lazy" decoding="async"
+                  alt="The Tess Coffee counter: warm wood slats with the white Tess logo, a La Cimbali espresso machine on top and black shelves of coffee behind.">
               </picture>
               <span class="strip__cap">The counter <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item" style="--ar: 1920 / 2400">
+            <button class="strip__btn" type="button" data-lightbox="behind-bar" data-w="1920" data-h="2400" data-caption="Behind the bar, where every cup is made.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/behind-bar-480.avif 480w, assets/img/photos/behind-bar-800.avif 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <source type="image/webp" srcset="assets/img/photos/behind-bar-480.webp 480w, assets/img/photos/behind-bar-800.webp 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <img src="assets/img/photos/behind-bar-800.jpg" width="1920" height="2400" loading="lazy" decoding="async"
+                  alt="A barista working behind the granite counter, next to the espresso machine, glass drippers and black shelves of coffee.">
+              </picture>
+              <span class="strip__cap">Behind the bar <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
             </button>
           </li>
           <li class="strip__item" style="--ar: 1 / 1">
@@ -294,6 +317,17 @@
               <span class="strip__cap">Patchwork corner <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
             </button>
           </li>
+          <li class="strip__item" style="--ar: 1920 / 2400">
+            <button class="strip__btn" type="button" data-lightbox="painting-wall" data-w="1920" data-h="2400" data-caption="A market scene by Tesfa Solomon, one of the paintings on our walls.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/painting-wall-480.avif 480w, assets/img/photos/painting-wall-800.avif 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <source type="image/webp" srcset="assets/img/photos/painting-wall-480.webp 480w, assets/img/photos/painting-wall-800.webp 800w" sizes="(min-width: 960px) 360px, 75vw">
+                <img src="assets/img/photos/painting-wall-800.jpg" width="1920" height="2400" loading="lazy" decoding="async"
+                  alt="A painting by Tesfa Solomon in a gold frame: women in shawls at a market stall of beans and spices, in deep blues and oranges, above a wooden ledge with a small plant.">
+              </picture>
+              <span class="strip__cap">Art on the walls <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
           <li class="strip__item" style="--ar: 1536 / 1920">
             <button class="strip__btn" type="button" data-lightbox="bar-ledge" data-w="1536" data-h="1920" data-caption="The long bar, with green velvet stools.">
               <picture>
@@ -305,7 +339,82 @@
               <span class="strip__cap">The long bar <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
             </button>
           </li>
+          <li class="strip__item" style="--ar: 1920 / 1080">
+            <button class="strip__btn" type="button" data-lightbox="shelf" data-w="1920" data-h="1080" data-caption="Old film cameras, a clock and cacti on the shelf.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/shelf-480.avif 480w, assets/img/photos/shelf-800.avif 800w, assets/img/photos/shelf-1200.avif 1200w" sizes="(min-width: 960px) 780px, 100vw">
+                <source type="image/webp" srcset="assets/img/photos/shelf-480.webp 480w, assets/img/photos/shelf-800.webp 800w, assets/img/photos/shelf-1200.webp 1200w" sizes="(min-width: 960px) 780px, 100vw">
+                <img src="assets/img/photos/shelf-800.jpg" width="1920" height="1080" loading="lazy" decoding="async"
+                  alt="A wooden wall shelf holding two vintage film cameras, an alarm clock and small cacti in geometric pots.">
+              </picture>
+              <span class="strip__cap">The shelf <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item" style="--ar: 1574 / 2048">
+            <button class="strip__btn" type="button" data-lightbox="painting-market" data-w="1574" data-h="2048" data-caption="Another market scene by Tesfa Solomon, full of beans and spices.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/painting-market-480.avif 480w, assets/img/photos/painting-market-800.avif 800w" sizes="(min-width: 960px) 340px, 75vw">
+                <source type="image/webp" srcset="assets/img/photos/painting-market-480.webp 480w, assets/img/photos/painting-market-800.webp 800w" sizes="(min-width: 960px) 340px, 75vw">
+                <img src="assets/img/photos/painting-market-800.jpg" width="1574" height="2048" loading="lazy" decoding="async"
+                  alt="A painting by Tesfa Solomon: a woman in a shawl choosing from bowls of beans and spices at a busy market.">
+              </picture>
+              <span class="strip__cap">Market colours <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item" style="--ar: 1 / 1">
+            <button class="strip__btn" type="button" data-lightbox="planter" data-w="1728" data-h="1728" data-caption="A snake plant in a Tess planter, with a handwritten thank you.">
+              <picture>
+                <source type="image/avif" srcset="assets/img/photos/planter-480.avif 480w, assets/img/photos/planter-800.avif 800w" sizes="(min-width: 960px) 440px, 85vw">
+                <source type="image/webp" srcset="assets/img/photos/planter-480.webp 480w, assets/img/photos/planter-800.webp 800w" sizes="(min-width: 960px) 440px, 85vw">
+                <img src="assets/img/photos/planter-800.jpg" width="1728" height="1728" loading="lazy" decoding="async"
+                  alt="A white geometric planter with a snake plant, printed with the Tess Coffee logo and a handwritten thank you.">
+              </picture>
+              <span class="strip__cap">The little things <svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span>
+            </button>
+          </li>
         </ul>
+      </div>
+      <div class="tibeb tibeb--dark" aria-hidden="true"></div>
+    </section>
+
+    <!-- TOURS ======================================================= -->
+    <section class="trips" id="tours" aria-labelledby="tours-title" data-tours>
+      <div class="led" aria-hidden="true"></div>
+      <div class="container">
+        <header class="trips__head">
+          <p class="eyebrow eyebrow--light"><span class="trips__badge" data-tours-badge hidden></span>Coffee tours</p>
+          <h2 class="section-title" id="tours-title" data-tours-title>Milk, run, ride, <em>cycle</em>.</h2>
+          <p class="trips__intro" data-tours-intro></p>
+        </header>
+
+        <h3 class="trips__sub">What's in the day</h3>
+        <div class="trail" role="tablist" aria-label="What's in the day" data-trail>
+          <span class="trail__fill" aria-hidden="true"></span>
+        </div>
+        <div class="trip" role="tabpanel" id="trip-panel" tabindex="0" data-trip></div>
+
+        <form class="ticket" id="trip-request" data-trip-form>
+          <div class="ticket__head">
+            <p class="ticket__kicker">Save a spot</p>
+            <h3 class="ticket__title" data-tour-name>Full-day coffee tour</h3>
+            <p class="ticket__price"><span data-tour-price></span><small data-tour-price-note></small></p>
+            <ul class="ticket__incl" data-tour-included aria-label="Included"></ul>
+            <p class="ticket__note">No payment and no account. Your request comes to us as a text message, and we reply to confirm.</p>
+          </div>
+          <div class="ticket__grid">
+            <label class="field"><span class="field__label">Date</span><input type="date" name="date" required data-trip-date></label>
+            <label class="field"><span class="field__label">People</span><input type="number" name="people" min="1" max="30" value="2" required inputmode="numeric" data-trip-people></label>
+            <label class="field field--wide"><span class="field__label">Your name</span><input type="text" name="name" autocomplete="name" required></label>
+            <label class="field field--wide"><span class="field__label">Anything we should know? <small>Optional</small></span><textarea name="note" rows="2"></textarea></label>
+          </div>
+          <div class="ticket__actions">
+            <button class="btn btn--primary" type="submit" data-send="sms"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg> Send by text</button>
+            <button class="btn btn--outline" type="submit" data-send="whatsapp" hidden><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> WhatsApp</button>
+            <button class="btn btn--outline" type="submit" data-send="copy"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> Copy request</button>
+            <a class="btn btn--outline" data-trip-call><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <span>Call us</span></a>
+          </div>
+        </form>
+        <noscript><p class="trips__intro">Ask at the counter about our coffee tours.</p></noscript>
       </div>
       <div class="tibeb tibeb--dark" aria-hidden="true"></div>
     </section>
@@ -430,7 +539,7 @@
 
     <div class="container site-footer__base">
       <p>© <span data-year>2026</span> Tess Coffee</p>
-      <p class="site-footer__placeholder" data-placeholder-footnote hidden>Menu, prices, stock, address and hours shown are placeholders.</p>
+      <p class="site-footer__placeholder" data-placeholder-footnote hidden>The address, hours and today's stock shown are placeholders.</p>
       <a class="to-top" href="#top" data-to-top aria-label="Back to the top">
         <svg class="to-top__ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="to-top__track" cx="24" cy="24" r="22"/><circle class="to-top__fill" cx="24" cy="24" r="22"/></svg>
         <svg class="icon" aria-hidden="true"><use href="#i-cup"/></svg>

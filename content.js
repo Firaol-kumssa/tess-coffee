@@ -22,8 +22,9 @@
      4. hours ........ opening times, holidays
      5. sizes ........ cup sizes (S / M / L)
      6. today ........ what is sold out / running low   <- update daily
-     7. menu ......... every section, item and price
+     7. menu ......... every section, item and price (from your printed menu)
      8. board ........ which sections show on "On the bar today"
+     9. tours ........ your full-day coffee tour (show: false hides it)
    ===================================================================== */
 
 window.TESS = {
@@ -47,7 +48,8 @@ window.TESS = {
   /* 2. SHOP --------------------------------------------------------- */
   shop: {
     name: "Tess Coffee",
-    phone: "+251 911 234 567",      // PLACEHOLDER
+    phone: "0915 53 11 11",         // as printed on the menu
+    phoneIntl: "+251915531111",      // the same number in international form, used for tap-to-call and SMS
     telegram: "tesscoffee",         // PLACEHOLDER  (your t.me/ username, or "" to hide)
     instagram: "tesscoffee",        // PLACEHOLDER  (your instagram username, or "" to hide)
     tiktok: ""                      // optional, "" hides it
@@ -64,11 +66,12 @@ window.TESS = {
     address: ["Off Cameroon Street, Bole", "Addis Ababa, Ethiopia"], // PLACEHOLDER
     landmark: "Right across the street from Feven Restaurant's blue neon sign.", // PLACEHOLDER (we spotted the sign in your photos; please check)
 
-    // PLACEHOLDER: 3 to 5 short steps. The last one is shown next to the photo of your door.
+    // 3 to 5 short steps. The last one is shown next to the photo of your door.
+    // photo: "sign" shows one of the photos in assets/img/photos next to a step.
     directions: [
-      { title: "Get to Bole Medhanialem", text: "Every ride driver knows the big church on Bole Road. Start there." },
-      { title: "Walk down Cameroon Street", text: "Head away from Bole Road for about four minutes, past the pharmacy on the corner." },
-      { title: "Find the blue neon", text: "Feven Restaurant's blue sign glows across the street from us, day and night." },
+      { title: "Get to Bole Medhanialem", text: "Every ride driver knows the big church on Bole Road. Start there." }, // PLACEHOLDER
+      { title: "Walk down Cameroon Street", text: "Head away from Bole Road for about four minutes, past the pharmacy on the corner." }, // PLACEHOLDER
+      { title: "Look up for the round sign", text: "A round white sign with ተስ ቡና and the gold Tess leaves hangs over the entrance.", photo: "sign" },
       { title: "Look for the cup on the glass", text: "A big coffee cup is painted on our glass door. Push it open and follow the smell." }
     ],
     parking: "Street parking out front. Easiest before 09:00." // PLACEHOLDER
@@ -118,127 +121,107 @@ window.TESS = {
     updatedBy: "the morning shift", // PLACEHOLDER  optional, "" hides it
 
     items: {                   // PLACEHOLDER  example stock
-      "oat-milk":         { status: "out", note: "Delivery due tomorrow morning" },
-      "harrar":           { status: "out", note: "Next lot arrives Friday" },
-      "banana-bread":     { status: "out", next: "15:30" },
-      "pain-au-chocolat": { status: "out", note: "Back tomorrow from 07:00" },
-      "croissant":        { status: "low", left: 3 },
-      "carrot-cake":      { status: "low", left: 2 },
-      "guji":             { status: "low", note: "Last few cups of this lot" },
-      "beans-guji":       { status: "low", left: 2, note: "Bags left on the shelf" },
-      "cookie":           { next: "12:30", note: "A fresh tray comes out mid-day" }
+      "banana-cake":            { status: "out", next: "15:30", note: "A fresh loaf is in the oven" },
+      "chicken-wrap":           { status: "out", note: "Back tomorrow morning" },
+      "english-cake":           { status: "low", left: 3 },
+      "iced-matcha-strawberry": { status: "low", note: "Last few strawberries today" }
     }
   },
 
   /* 7. MENU --------------------------------------------------------- */
-  // Each section has items. Each item needs a unique id and ONE way of pricing:
+  // Names and prices are from your printed "Coffee & Breakfast" menu.
+  // The short descriptions are suggestions: edit them, or delete  desc: "..."  to show none.
+  //
+  // Each item needs a unique id and ONE way of pricing:
   //   price: 120                                   one price
-  //   sizes: { S: 110, M: 140, L: 170 }            cup sizes (leave out sizes you do not sell)
+  //   sizes: { S: 110, M: 140, L: 170 }            cup sizes (the size picker appears once any drink has them)
   //   options: [["Single", 70], ["Double", 100]]   anything else (weights, portions...)
   //
   // Optional extras on an item:
-  //   tags: ["signature"]   shows a small label. Known tags: signature, local-favourite, new, vegan, vegetarian, ceremony
+  //   tags: ["signature"]   shows a small label. Known tags: signature, local-favourite, ethiopian, fasting, new, vegan, vegetarian
   //   cup: "latte"          puts the drink in the 3D cup at the top of the page.
   //                         Looks: espresso, macchiato, cappuccino, latte, americano, mocha, spiced, tea, chocolate
-  //   roasted: "2026-09-26" roast date for beans (shows how fresh they are)
   //
   // A section can have  served: ["07:00", "11:30"]  if it is only available part of the day.
+
+  // The three drinks on the front of the printed menu, shown as cards above the menu.
+  featured: ["tess-coffee", "filter-coffee", "iced-matcha"],
+
   menu: [
     {
-      id: "espresso",
-      title: "Espresso bar",
-      note: "Pulled on the La Cimbali from our house blend of Sidama and Guji.", // PLACEHOLDER blend
-      items: [ // PLACEHOLDER items and prices
-        { id: "espresso",     name: "Espresso",       desc: "Short and syrupy, with a bright berry finish.", options: [["Single", 70], ["Double", 100]] },
-        { id: "macchiato",    name: "Macchiato",      desc: "The Addis classic: espresso under a cap of silky foam.", sizes: { S: 80, M: 100 }, tags: ["local-favourite"], cup: "macchiato" },
-        { id: "cortado",      name: "Cortado",        desc: "Equal parts espresso and warm milk.", price: 110 },
-        { id: "cappuccino",   name: "Cappuccino",     desc: "Deep foam, a dusting of cocoa if you like.", sizes: { S: 120, M: 150, L: 180 }, cup: "cappuccino" },
-        { id: "latte",        name: "Caffè latte",    desc: "Long, gentle and milky.", sizes: { S: 130, M: 160, L: 190 }, cup: "latte" },
-        { id: "flat-white",   name: "Flat white",     desc: "Double ristretto with thin, velvet milk.", sizes: { S: 140 }, cup: "cappuccino" },
-        { id: "americano",    name: "Americano",      desc: "Espresso stretched with hot water.", sizes: { S: 90, M: 110, L: 130 }, cup: "americano" },
-        { id: "mocha",        name: "Mocha",          desc: "Espresso, dark chocolate, steamed milk.", sizes: { M: 180, L: 210 }, cup: "mocha" },
-        { id: "spiced-latte", name: "Tess spiced latte", desc: "Cardamom, cinnamon and a spoon of honey.", sizes: { M: 170, L: 200 }, tags: ["signature"], cup: "spiced" },
-        { id: "iced-latte",   name: "Iced latte",     desc: "Double shot over ice and cold milk.", sizes: { M: 170, L: 200 } }
+      id: "coffee",
+      title: "Coffee",
+      note: "Ethiopian Arabica, from a quick macchiato to a slow filter.",
+      items: [
+        { id: "tess-coffee",       name: "Tess Coffee",       desc: "A pure single-origin black coffee, sourced directly from Ethiopia. A true taste of its terroir.", price: 160, tags: ["signature"], cup: "americano" },
+        { id: "filter-coffee",     name: "Filter Coffee",     desc: "Our signature blend of medium-roasted Arabica, brewed for a clean, smooth, full-bodied cup.", price: 250, tags: ["signature"] },
+        { id: "macchiato",         name: "Macchiato",         desc: "The Addis classic: espresso under a cap of foamed milk.", price: 160, tags: ["local-favourite"], cup: "macchiato" },
+        { id: "fasting-macchiato", name: "Fasting Macchiato", desc: "Made without dairy, for fasting days.", price: 200, tags: ["fasting"] },
+        { id: "espresso",          name: "Espresso",          desc: "A short, strong shot.", price: 160 },
+        { id: "espris",            name: "Espris",            desc: "Coffee and tea in one glass, the Ethiopian way.", price: 160, tags: ["ethiopian"] }, // check this description
+        { id: "americano",         name: "Americano",         desc: "Espresso lengthened with hot water.", price: 160, cup: "americano" },
+        { id: "cappuccino",        name: "Cappuccino",        desc: "Espresso under deep, velvety milk foam.", price: 250, cup: "cappuccino" },
+        { id: "mocha-latte",       name: "Mocha Latte",       desc: "Espresso, chocolate and steamed milk.", price: 250, cup: "mocha" }
       ]
     },
     {
-      id: "slow",
-      title: "Slow bar",
-      note: "Single origins brewed by hand, in the V60 or the glass siphon. Ask what's on today.",
-      items: [ // PLACEHOLDER origins and prices
-        { id: "yirgacheffe", name: "Yirgacheffe · Kochere", desc: "Washed. Jasmine, bergamot, lemon tea.", options: [["V60", 170], ["Siphon", 220]] },
-        { id: "guji",        name: "Guji · Hambela",        desc: "Natural. Blueberry, cacao nib, a little wine.", options: [["V60", 180], ["Siphon", 230]] },
-        { id: "sidama",      name: "Sidama · Bensa",        desc: "Honey process. Stone fruit and brown sugar.", options: [["V60", 175], ["Siphon", 225]] },
-        { id: "harrar",      name: "Harrar · Longberry",    desc: "Natural. Mocha, dried apricot, warm spice.", options: [["V60", 170], ["Siphon", 220]] },
-        { id: "cold-brew",   name: "Cold brew",             desc: "Steeped for 18 hours, served over ice.", sizes: { M: 150, L: 180 } }
+      id: "cold",
+      title: "Iced & matcha",
+      items: [
+        { id: "iced-matcha",            name: "Iced Matcha",            desc: "Premium stone-ground matcha whisked with cold milk, over ice, with honey.", price: 400, tags: ["signature"] },
+        { id: "iced-matcha-strawberry", name: "Iced Matcha Strawberry", price: 450 },
+        { id: "iced-matcha-chocolate",  name: "Iced Matcha Chocolate",  price: 450 },
+        { id: "iced-latte",             name: "Iced Latte",             desc: "Espresso over ice and cold milk.", price: 250 }
       ]
     },
     {
-      id: "classics",
-      title: "Ethiopian classics",
-      note: "Coffee the way it's poured at home.",
-      items: [ // PLACEHOLDER
-        { id: "jebena-buna", name: "Jebena buna", desc: "Roasted, ground and boiled in a clay jebena, poured into small sini cups. Tena adam on request.", options: [["One sini", 60], ["Jebena for the table (4–6)", 300]], tags: ["ceremony"] },
-        { id: "kolo",        name: "Kolo & fendisha", desc: "Roasted barley and popcorn, the ceremony's crunchy sidekicks.", price: 60, tags: ["vegan"] },
-        { id: "shai",        name: "Shai",            desc: "Black tea with cinnamon, clove and cardamom.", sizes: { S: 50, M: 70 }, cup: "tea", tags: ["vegan"] }
-      ]
-    },
-    {
-      id: "not-coffee",
-      title: "Not coffee",
-      items: [ // PLACEHOLDER
-        { id: "hot-chocolate", name: "Hot chocolate", desc: "Dark chocolate melted into steamed milk.", sizes: { M: 150, L: 180 }, cup: "chocolate" },
-        { id: "spris",         name: "Spris",         desc: "Layered avocado, mango and papaya juice. Eat it with a spoon.", sizes: { M: 140, L: 170 }, tags: ["local-favourite", "vegan"] },
-        { id: "avocado-juice", name: "Avocado juice", desc: "Thick, cold, with a squeeze of lime.", price: 130, tags: ["vegan"] },
-        { id: "lemonade",      name: "Ginger & mint lemonade", desc: "Fresh lemon, ginger and mint over ice.", price: 120, tags: ["vegan"] },
-        { id: "ambo",          name: "Ambo mineral water", desc: "Ethiopia's own sparkling water.", price: 40 }
+      id: "tea",
+      title: "Tea & more",
+      items: [
+        { id: "special-tea",   name: "Special Tea",   price: 250, cup: "tea" },
+        { id: "green-tea",     name: "Green Tea",     price: 100 },
+        { id: "mint-tea",      name: "Mint Tea",      price: 100 },
+        { id: "lemon-tea",     name: "Lemon Tea",     price: 80 },
+        { id: "ginger-tea",    name: "Ginger Tea",    price: 70 },
+        { id: "hot-chocolate", name: "Hot Chocolate", desc: "Chocolate and steamed milk.", price: 250, cup: "chocolate" },
+        { id: "milk",          name: "Milk",          desc: "A glass of hot milk.", price: 200 },
+        { id: "water",         name: "Water",         desc: "Half-litre bottle.", price: 60 }
       ]
     },
     {
       id: "breakfast",
       title: "Breakfast",
-      served: ["07:00", "11:30"], // PLACEHOLDER
-      note: "Served until 11:30, every day.",
-      items: [ // PLACEHOLDER
-        { id: "chechebsa",      name: "Chechebsa",       desc: "Torn flatbread fried in spiced butter, with honey and yogurt.", price: 190, tags: ["local-favourite"] },
-        { id: "fetira",         name: "Fetira",          desc: "Flaky layered bread with egg and honey.", price: 210 },
-        { id: "ful",            name: "Ful",             desc: "Slow-cooked fava beans, tomato, onion, egg and warm bread.", price: 170, tags: ["vegetarian"] },
-        { id: "enkulal-firfir", name: "Enkulal firfir",  desc: "Scrambled eggs with tomato, onion and green chilli.", price: 160, tags: ["vegetarian"] },
-        { id: "avocado-toast",  name: "Avocado toast",   desc: "Sourdough, smashed avocado, chilli and lime.", price: 220, tags: ["vegan"] },
-        { id: "granola",        name: "Granola bowl",    desc: "House granola, thick yogurt, honey and seasonal fruit.", price: 180, tags: ["vegetarian"] }
+      items: [
+        { id: "omelette",          name: "Omelette",          price: 400 },
+        { id: "special-omelette",  name: "Special Omelette",  price: 450 },
+        { id: "scrambled-egg",     name: "Scrambled Egg",     price: 350 },
+        { id: "shakshuka",         name: "Shakshuka",         desc: "Eggs cooked in a spiced tomato and pepper sauce.", price: 400 },
+        { id: "normal-foul",       name: "Normal Foul",       desc: "Ethiopian-style fava beans, served with bread.", price: 400, tags: ["ethiopian"] },
+        { id: "special-foul",      name: "Special Foul",      price: 480, tags: ["ethiopian"] },
+        { id: "foul-avocado",      name: "Foul with Avocado", price: 450, tags: ["ethiopian"] },
+        { id: "chechebsa",         name: "Chechebsa",         desc: "Torn flatbread tossed in spiced butter, often eaten with honey.", price: 350, tags: ["ethiopian"] },
+        { id: "special-chechebsa", name: "Special Chechebsa", price: 480, tags: ["ethiopian"] },
+        { id: "kinche",            name: "Kinche",            desc: "Cracked wheat cooked with spiced butter.", price: 300, tags: ["ethiopian"] },
+        { id: "pancake",           name: "Pancake",           price: 350 }
       ]
     },
     {
-      id: "bakery",
-      title: "Bakery & sweets",
-      note: "Baked in small batches. They go fast.",
-      items: [ // PLACEHOLDER
-        { id: "pound-cake",       name: "Pound cake",       desc: "The one under the glass dome on the counter. Butter and vanilla.", price: 90, tags: ["vegetarian"] },
-        { id: "banana-bread",     name: "Banana bread",     desc: "Dark, sticky, toasted to order.", price: 100, tags: ["vegetarian"] },
-        { id: "croissant",        name: "Butter croissant", desc: "Baked every morning.", price: 110, tags: ["vegetarian"] },
-        { id: "pain-au-chocolat", name: "Pain au chocolat", desc: "Two bars of dark chocolate inside.", price: 130, tags: ["vegetarian"] },
-        { id: "carrot-cake",      name: "Carrot cake",      desc: "Spiced sponge, cream-cheese frosting.", price: 140, tags: ["vegetarian"] },
-        { id: "cookie",           name: "Brown-butter cookie", desc: "Crisp edges, soft middle, flaky salt.", price: 60, tags: ["vegetarian"] }
+      id: "sandwiches",
+      title: "Sandwiches & wraps",
+      items: [
+        { id: "egg-sandwich",     name: "Egg Sandwich",     price: 300 },
+        { id: "tuna-sandwich",    name: "Tuna Sandwich",    price: 450 },
+        { id: "chicken-sandwich", name: "Chicken Sandwich", price: 850 },
+        { id: "chicken-wrap",     name: "Chicken Wrap",     price: 850 }
       ]
     },
     {
-      id: "extras",
-      title: "Milk & extras",
-      items: [ // PLACEHOLDER
-        { id: "oat-milk",    name: "Oat milk",    desc: "For any milk drink.", price: 40, tags: ["vegan"] },
-        { id: "extra-shot",  name: "Extra shot",  desc: "Make it stronger.", price: 40 },
-        { id: "syrup",       name: "Syrup",       desc: "Vanilla or caramel.", price: 30 }
-      ]
-    },
-    {
-      id: "beans",
-      title: "Beans to take home",
-      note: "Whole bean, or ground for your brewer while you wait.",
-      items: [ // PLACEHOLDER
-        { id: "beans-house",       name: "House espresso blend", desc: "Sidama and Guji. Chocolate, cherry, honey.", options: [["250 g", 550], ["500 g", 1000], ["1 kg", 1900]], roasted: "2026-09-28" },
-        { id: "beans-yirgacheffe", name: "Yirgacheffe beans",    desc: "Kochere, washed, light roast. Floral and bright.", options: [["250 g", 700], ["500 g", 1300]], roasted: "2026-09-25" },
-        { id: "beans-guji",        name: "Guji beans",           desc: "Hambela, natural, light roast. Blueberry jam.", options: [["250 g", 750], ["500 g", 1400]], roasted: "2026-09-23" },
-        { id: "beans-jebena",      name: "Jebena roast",         desc: "Darker roast, ground fine for the jebena.", options: [["250 g", 450], ["500 g", 850]], roasted: "2026-09-29" }
+      id: "cakes",
+      title: "Cakes",
+      note: "By the slice, from under the glass dome on the counter.",
+      items: [
+        { id: "english-cake", name: "English Cake", price: 200 },
+        { id: "banana-cake",  name: "Banana Cake",  price: 200 }
       ]
     }
   ],
@@ -247,6 +230,32 @@ window.TESS = {
   // Menu sections that change during the day, shown as lit shelves in
   // "On the bar today". Use the section ids from the menu above.
   board: {
-    shelves: ["slow", "bakery", "breakfast", "beans", "extras"]
+    shelves: ["cakes", "breakfast", "sandwiches", "cold"]
+  },
+
+  /* 9. COFFEE TOUR -------------------------------------------------- */
+  // Your full-day coffee tour. Set  show: false  to hide the whole section.
+  // Requests come to you as a text message, a WhatsApp message or a call. No booking system needed.
+  tours: {
+    show: true,
+    badge: "New",                  // a small label above the title, "" hides it
+    title: "Milk, run, ride, cycle.",
+    intro: "One full day out with Tess: milking on a farm, marathon training, horse riding and a bike tour, with a coach assigned to you and transport all day.",
+    name: "Full-day coffee tour",
+    price: "About $3,200",         // shown exactly as written
+    priceNote: "",                 // CHECK: add "per person" or "per group" so guests know what the price covers
+    duration: "Full day",
+    phone: "+251915531111",        // calls and text-message requests go here
+    whatsapp: "",                  // optional: your WhatsApp number without + or spaces, e.g. "251915531111"
+
+    // The day, in order. icon: milk, run, horse or bike.
+    // The short texts are suggestions: change them to describe your day.
+    activities: [
+      { icon: "milk",  title: "Milking",           text: "Get hands-on at a farm and try milking by hand." },
+      { icon: "run",   title: "Marathon training", text: "Train the way Ethiopia's famous distance runners do, with a coach setting the pace." },
+      { icon: "horse", title: "Horse riding",      text: "Head out on horseback and take in the land at an easier pace." },
+      { icon: "bike",  title: "Bike tour",         text: "Explore on two wheels on a guided bike tour." }
+    ],
+    included: ["A coach assigned to you", "Transportation"]
   }
 };

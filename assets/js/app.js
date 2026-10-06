@@ -170,6 +170,7 @@
   });
   var TODAY = T.today || {};
   var STOCK = TODAY.items || {};
+  var SIZED = MENU.some(function (cat) { return (cat.items || []).some(function (it) { return it.sizes; }); });
   Object.keys(STOCK).forEach(function (id) {
     if (!ITEMS[id]) console.warn("Tess: today.items mentions \"" + id + "\", but no menu item has that id.");
   });
@@ -226,8 +227,29 @@
     return out;
   }
 
-  var TAGS = { signature: "Signature", "local-favourite": "Local favourite", new: "New", vegan: "Vegan", vegetarian: "Vegetarian", ceremony: "Ceremony" };
+  var TAGS = { signature: "Signature", "local-favourite": "Local favourite", ethiopian: "Ethiopian", fasting: "Fasting", new: "New", vegan: "Vegan", vegetarian: "Vegetarian", ceremony: "Ceremony" };
   function tagLabel(t) { return TAGS[t] || String(t).replace(/-/g, " ").replace(/^./, function (c) { return c.toUpperCase(); }); }
+
+  // Photo names used in content.js. Every photo has 480, 800 and 1200 px versions.
+  var PHOTO_INFO = {
+    "sign": { w: 1728, h: 2160, alt: "The round sign over our entrance: ተስ ቡና above the Tess Coffee logo and its gold leaves." },
+    "slow-bar": { w: 1920, h: 2400 },
+    "painting-market": { w: 1574, h: 2048 },
+    "painting-wall": { w: 1920, h: 2400 },
+    "counter-logo": { w: 1728, h: 2160 },
+    "behind-bar": { w: 1920, h: 2400 },
+    "corner": { w: 1920, h: 1920 },
+    "bar-ledge": { w: 1536, h: 1920 },
+    "shelf": { w: 1920, h: 1080 },
+    "planter": { w: 1728, h: 1728 },
+    "door": { w: 1651, h: 2064 }
+  };
+  function photoHTML(name, alt, sizes) {
+    var info = PHOTO_INFO[name] || {}, base = "assets/img/photos/" + encodeURIComponent(name);
+    var set = function (ext) { return [480, 800, 1200].map(function (w) { return base + "-" + w + "." + ext + " " + w + "w"; }).join(", "); };
+    return '<picture><source type="image/avif" srcset="' + set("avif") + '" sizes="' + sizes + '"><source type="image/webp" srcset="' + set("webp") + '" sizes="' + sizes + '">' +
+      '<img src="' + base + '-800.jpg"' + (info.w ? ' width="' + info.w + '" height="' + info.h + '"' : "") + ' loading="lazy" decoding="async" alt="' + esc(alt || info.alt || "") + '"></picture>';
+  }
 
   /* ---------- small bits of content ---------- */
   var LOC = T.location || {};
@@ -526,6 +548,7 @@
         (cat.note ? '<p class="menu-cat__note">' + esc(cat.note) + "</p>" : "") + "</div>" +
         '<ul class="menu-list">' + cat.items.map(function (it) { return itemHTML(it, cat, now, sized); }).join("") + "</ul></section>";
     }).join("");
+    renderFeatured(now);
 
     var nav = $("[data-menu-cats]");
     if (nav && !nav.childElementCount) {
@@ -533,6 +556,30 @@
     }
     applyMenuFilters();
     observeCats();
+  }
+
+  function renderFeatured(now) {
+    var wrap = $("[data-featured-wrap]"), ul = $("[data-featured]");
+    if (!wrap || !ul) return;
+    var ids = (T.featured || []).filter(function (id) {
+      if (!ITEMS[id]) console.warn("Tess: featured lists \"" + id + "\", but no menu item has that id.");
+      return !!ITEMS[id];
+    });
+    wrap.hidden = !ids.length;
+    ul.innerHTML = ids.map(function (id, i) {
+      var it = ITEMS[id].item, s = stockOf(id, now);
+      var flag = s.status === "out" ? '<span class="flag flag--out">Sold out today</span>' :
+        s.status === "low" ? '<span class="flag flag--low">' + esc(s.left != null ? "Only " + s.left + " left" : "Running low") + "</span>" : "";
+      var action = CUP_IDS.indexOf(id) > -1 ?
+        '<button class="cup-link" type="button" data-cup-go="' + esc(id) + '">' + icon("i-cup") + "See it in the cup</button>" :
+        '<a class="feat__link" href="#item-' + esc(id) + '" data-go-item="' + esc(id) + '">On the menu →</a>';
+      return '<li class="feat is-' + s.status + '">' +
+        '<svg class="feat__mark" viewBox="0 0 214.2 181.2" aria-hidden="true"><use href="#tess-leaves"/></svg>' +
+        '<p class="feat__no" aria-hidden="true">' + String(i + 1).padStart(2, "0") + "</p>" +
+        '<h4 class="feat__name">' + esc(it.name) + "</h4>" +
+        (it.desc ? '<p class="feat__desc">' + esc(it.desc) + "</p>" : "") +
+        '<div class="feat__foot"><span class="feat__price">' + esc(fromPrice(it)) + "</span>" + flag + action + "</div></li>";
+    }).join("");
   }
 
   function applyMenuFilters() {
@@ -603,7 +650,8 @@
   function initMenu() {
     renderMenu(true);
     var legend = $("[data-sizes-legend]");
-    if (legend) {
+    if (legend && !SIZED) legend.hidden = true;
+    else if (legend) {
       legend.innerHTML = '<ul class="sizes-legend" aria-label="Cup sizes">' + SIZE_KEYS.map(function (k) {
         return "<li>" + cupIcon(k, 1.7) + "<b>" + esc(SIZES[k].name) + "</b>" + esc(SIZES[k].ml) + " ml</li>";
       }).join("") + "</ul>";
@@ -621,6 +669,8 @@
       }
       var go = e.target.closest("[data-cup-go]");
       if (go) pickDrink(go.getAttribute("data-cup-go"), true);
+      var feat = e.target.closest("[data-featured] [data-go-item]");
+      if (feat) { e.preventDefault(); goToItem(feat.getAttribute("data-go-item")); }
     });
   }
 
@@ -641,10 +691,10 @@
     var it = ITEMS[cupState.id].item, s = stockOf(it.id, shopNow());
     var price = it.sizes ? it.sizes[cupState.size] : it.price;
     var sz = SIZES[cupState.size] || { name: "", ml: "" };
-    out.innerHTML = "<b>" + esc(it.name) + '</b><span class="r-size">' + (it.sizes ? esc(sz.name) + " · " + esc(sz.ml) + " ml" : "One size") + "</span>" +
+    out.innerHTML = "<b>" + esc(it.name) + "</b>" + (it.sizes ? '<span class="r-size">' + esc(sz.name) + " · " + esc(sz.ml) + " ml</span>" : "") +
       '<span class="r-price">' + esc(money(price)) + "</span>" + (s.status === "out" ? '<span class="r-out">Sold out today</span>' : "");
     var canvas = $("[data-cup-canvas]");
-    if (canvas) canvas.setAttribute("aria-label", "A Tess Coffee takeaway cup: " + it.name + ", " + (it.sizes ? sz.name.toLowerCase() : "one size") + ", " + money(price) + (cupState.lid ? ", lid off so you can see inside" : "") + ". Drag it, or use the left and right arrow keys, to spin it.");
+    if (canvas) canvas.setAttribute("aria-label", "A Tess Coffee takeaway cup: " + it.name + (it.sizes ? ", " + sz.name.toLowerCase() : "") + ", " + money(price) + (cupState.lid ? ", lid off so you can see inside" : "") + ". Drag it, or use the left and right arrow keys, to spin it.");
   }
 
   function renderCupSizes() {
@@ -652,6 +702,8 @@
     if (!box || !cupState.id) return;
     var it = ITEMS[cupState.id].item, ok = cupSizesFor(it);
     if (ok.indexOf(cupState.size) < 0) cupState.size = ok.indexOf("M") > -1 ? "M" : ok[0];
+    var group = $("[data-cup-sizes-group]");
+    if (group) group.hidden = !it.sizes;
     box.innerHTML = SIZE_KEYS.map(function (k) {
       var avail = ok.indexOf(k) > -1, p = it.sizes ? it.sizes[k] : (k === "M" ? it.price : null);
       return '<label><input type="radio" name="cup-size" value="' + esc(k) + '"' + (k === cupState.size ? " checked" : "") + (avail ? "" : " disabled") + ">" +
@@ -701,7 +753,8 @@
       var it = ITEMS[id].item, out = stockOf(id, now).status === "out";
       return '<label class="chip"><input type="radio" name="cup-drink" value="' + esc(id) + '"><span>' + esc(it.name) + (out ? "<small>Sold out</small>" : "") + "</span></label>";
     }).join("");
-    var first = CUP_IDS.indexOf("cappuccino") > -1 ? "cappuccino" : CUP_IDS[0];
+    var first = (T.featured || []).filter(function (id) { return CUP_IDS.indexOf(id) > -1; })[0] ||
+      (CUP_IDS.indexOf("cappuccino") > -1 ? "cappuccino" : CUP_IDS[0]);
     $('input[value="' + first + '"]', drinks).checked = true;
 
     var stage = $("[data-stage]"), canvas = $("[data-cup-canvas]"), arch = $(".stage__arch", stage);
@@ -853,7 +906,8 @@
     var steps = $("[data-directions]");
     if (steps) {
       steps.innerHTML = (LOC.directions || []).map(function (d) {
-        return '<li class="route__step"><h4>' + esc(d.title) + "</h4><p>" + esc(d.text) + "</p></li>";
+        return '<li class="route__step"><h4>' + esc(d.title) + "</h4><p>" + esc(d.text) + "</p>" +
+          (d.photo ? '<div class="route__photo">' + photoHTML(d.photo, d.photoAlt, "150px") + "</div>" : "") + "</li>";
       }).join("");
       if (LOC.parking) {
         var note = document.createElement("p");
@@ -962,6 +1016,121 @@
     });
   }
 
+  /* ---------- coffee tour ---------- */
+  var TOUR = T.tours || {};
+  var ACT_ICONS = { milk: "i-milk", run: "i-run", horse: "i-horse", bike: "i-bike" };
+
+  function activityHTML(a, i, n) {
+    return '<div class="trip__media"><span class="medal" aria-hidden="true">' + icon(ACT_ICONS[a.icon] || "i-cup") + "</span>" +
+      '<span class="trip__step">' + (i + 1) + " of " + n + "</span></div>" +
+      '<div class="trip__body">' +
+      '<p class="trip__where">' + esc(TOUR.name || "Coffee tour") + (TOUR.duration ? " · " + esc(TOUR.duration) : "") + "</p>" +
+      '<h4 class="trip__title">' + esc(a.title) + "</h4>" +
+      (a.text ? '<p class="trip__text">' + esc(a.text) + "</p>" : "") +
+      '<a class="btn btn--gold" href="#trip-request" data-trip-book>' + icon("i-message") + "Request this tour</a>" +
+      "</div>";
+  }
+
+  function initTours() {
+    var sec = $("[data-tours]");
+    if (!sec) return;
+    if (TOUR.show === false || !TOUR.name) {
+      sec.hidden = true;
+      $$('[data-nav="tours"]').forEach(function (a) { a.hidden = true; });
+      return;
+    }
+    var badge = $("[data-tours-badge]");
+    if (badge && TOUR.badge) { badge.textContent = TOUR.badge; badge.hidden = false; }
+    var title = $("[data-tours-title]");
+    if (title && TOUR.title) title.innerHTML = esc(TOUR.title).replace(/(\S+?)([.!?]?)$/, "<em>$1</em>$2");
+    var intro = $("[data-tours-intro]");
+    if (intro) intro.textContent = TOUR.intro || "";
+
+    var acts = (TOUR.activities || []).filter(function (a) { return a && a.title; });
+    $("[data-tour-name]").textContent = TOUR.name;
+    $("[data-tour-price]").textContent = TOUR.price || "Price on request";
+    $("[data-tour-price-note]").textContent = [TOUR.priceNote, TOUR.duration].filter(Boolean).join(" · ");
+    $("[data-tour-included]").innerHTML = acts.map(function (a) { return a.title; }).concat(TOUR.included || []).map(function (x) {
+      return "<li>" + icon("i-check") + esc(x) + "</li>";
+    }).join("");
+
+    var trail = $("[data-trail]"), panel = $("[data-trip]"), form = $("[data-trip-form]");
+    var date = $("[data-trip-date]"), people = $("[data-trip-people]");
+    var current = 0;
+
+    function select(i, focus) {
+      current = (i + acts.length) % acts.length;
+      $$(".trail__stop", trail).forEach(function (b, j) {
+        var on = j === current;
+        b.setAttribute("aria-selected", String(on));
+        b.tabIndex = on ? 0 : -1;
+        if (on && focus) b.focus();
+      });
+      trail.style.setProperty("--at", acts.length > 1 ? current / (acts.length - 1) : 0);
+      panel.setAttribute("aria-labelledby", "act-tab-" + current);
+      panel.innerHTML = activityHTML(acts[current], current, acts.length);
+      panel.classList.remove("is-swapping"); void panel.offsetWidth; panel.classList.add("is-swapping");
+    }
+
+    if (acts.length) {
+      trail.style.setProperty("--n", acts.length);
+      trail.insertAdjacentHTML("beforeend", acts.map(function (a, i) {
+        return '<button class="trail__stop" type="button" role="tab" id="act-tab-' + i + '" aria-controls="trip-panel" aria-selected="false" tabindex="-1" data-act="' + i + '">' +
+          '<span class="trail__icon">' + icon(ACT_ICONS[a.icon] || "i-cup") + "</span>" +
+          '<span class="trail__label">' + String(i + 1).padStart(2, "0") + "</span>" +
+          '<span class="trail__title">' + esc(a.title) + "</span></button>";
+      }).join(""));
+      trail.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-act]");
+        if (b) select(+b.getAttribute("data-act"));
+      });
+      trail.addEventListener("keydown", function (e) {
+        var i = e.key === "ArrowRight" ? current + 1 : e.key === "ArrowLeft" ? current - 1 : e.key === "Home" ? 0 : e.key === "End" ? acts.length - 1 : null;
+        if (i == null) return;
+        e.preventDefault();
+        select(i, true);
+      });
+      panel.addEventListener("click", function (e) {
+        if (!e.target.closest("[data-trip-book]")) return;
+        e.preventDefault();
+        form.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" });
+        setTimeout(function () { date.focus({ preventScroll: true }); }, reduced() ? 0 : 600);
+      });
+      select(0);
+    } else {
+      $$(".trips__sub, [data-trail], [data-trip]", sec).forEach(function (n) { n.hidden = true; });
+    }
+    date.min = shopNow().date;
+
+    var phone = String(TOUR.phone || SHOP.phoneIntl || SHOP.phone || "").replace(/[^\d+]/g, "");
+    var wa = String(TOUR.whatsapp || "").replace(/\D/g, "");
+    $('[data-send="whatsapp"]', form).hidden = !wa;
+    $('[data-send="sms"]', form).hidden = !phone;
+    var call = $("[data-trip-call]", form);
+    if (phone) { call.href = "tel:" + phone; $("span", call).textContent = "Call " + (SHOP.phone || phone); }
+    else call.hidden = true;
+
+    var via = "sms";
+    form.addEventListener("click", function (e) { var b = e.target.closest("[data-send]"); if (b) via = b.getAttribute("data-send"); });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (e.submitter && e.submitter.hasAttribute("data-send")) via = e.submitter.getAttribute("data-send");
+      var f = form.elements, n = Math.max(1, Math.floor(+people.value || 1));
+      var d = new Date(f.date.value + "T12:00:00Z");
+      var when = isNaN(d) ? f.date.value : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getUTCDay()] + " " + prettyDate(f.date.value) + " " + d.getUTCFullYear();
+      var msg = "Hello Tess Coffee! I would like to request the " + TOUR.name + " on " + when + " for " + n + (n === 1 ? " person" : " people") +
+        ". My name is " + f.name.value.trim() + "." + (f.note.value.trim() ? " " + f.note.value.trim() : "");
+      if (via === "copy") {
+        copyText(msg).then(function () { toast("Request copied. Paste it into a message to " + (SHOP.phone || phone) + "."); }, function () { toast(msg); });
+      } else if (via === "whatsapp") {
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+      } else {
+        toast("Opening your messages app…");
+        window.location.href = "sms:" + phone + "?&body=" + encodeURIComponent(msg);
+      }
+    });
+  }
+
   /* ---------- header, dock, scroll spy, reveals ---------- */
   function initChrome() {
     var header = $("[data-header]"), root = document.documentElement;
@@ -991,12 +1160,12 @@
           });
         });
       }, { rootMargin: "-45% 0px -50% 0px" });
-      ["top", "today", "menu", "inside", "visit"].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+      ["top", "today", "menu", "inside", "tours", "visit"].forEach(function (id) { var s = document.getElementById(id); if (s && !s.hidden) spy.observe(s); });
     }
 
     // the LED strips switch on as their section arrives
     var leds = $$(".led").map(function (l) { return l.parentNode; });
-    var reveal = $$(".today__head, .today__summary, .menu__head, .inside__intro, .tour, .strip__head, .visit__head, .map-card, .visit__info, .route");
+    var reveal = $$(".today__head, .today__summary, .menu__head, .inside__intro, .tour, .strip__head, .trips__head, .ticket, .visit__head, .map-card, .visit__info, .route");
     reveal.forEach(function (n, i) { n.setAttribute("data-reveal", ""); n.style.setProperty("--rd", (i % 2) * 90 + "ms"); });
     if (!("IntersectionObserver" in window) || reduced()) {
       leds.forEach(function (s) { s.classList.add("is-lit"); });
@@ -1099,6 +1268,7 @@
   safe(initTour, "tour");
   safe(initStrip, "photos");
   safe(initVisit, "visit");
+  safe(initTours, "tours");
   safe(initChrome, "header");
   safe(initShare, "share");
   safe(initFooter, "footer");
