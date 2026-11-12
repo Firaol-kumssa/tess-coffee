@@ -2298,3 +2298,56 @@ h1, h2, h3, h4 { margin: 0; }
   .js [data-reveal] { opacity: 1; transform: none; }
   .lamp__svg { animation: none; }
 }
+
+/* ---------- SISTER COMPANY: SIMEN LAND TOURS ---------- */
+/* Built from the same pieces as "Step inside": .dark, .eyebrow, .section-title, .strip__cap, .tibeb */
+.sister {
+  position: relative;
+  padding-top: clamp(4rem, 9vw, 7.5rem);
+  background:
+    radial-gradient(80% 45% at 20% 10%, rgba(var(--glow), 0.07), transparent 70%),
+    var(--green-900);
+}
+.sister > .tibeb { margin-top: clamp(4rem, 8vw, 6rem); }
+.sister__head { max-width: 46rem; }
+.sister__logo { display: block; height: 52px; width: auto; max-width: 200px; object-fit: contain; margin-bottom: 1.5rem; }
+.sister__lede { max-width: 36em; margin-top: 1.1rem; font-size: 1.08rem; color: #ddd4c3; }
+.sister__marquee {
+  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+  padding: 4px 0 10px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+/* the list holds every photo twice; sliding it by half its width loops seamlessly */
+.sister__grid {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: sister-slide 70s linear infinite;
+}
+.sister__marquee:hover .sister__grid,
+.sister__marquee:focus-within .sister__grid { animation-play-state: paused; }
+@keyframes sister-slide { to { transform: translateX(-50%); } }
+.sister__grid > li { margin-right: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .sister__marquee { overflow-x: auto; scrollbar-width: none; -webkit-mask: none; mask: none; }
+  .sister__grid { animation: none; }
+  .sister__item--dup { display: none; }
+}
+.sister__item {
+  position: relative;
+  flex: none;
+  width: clamp(150px, 40vw, 210px);
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #1c1f19;
+}
+.sister__item .strip__cap { left: 8px; bottom: 8px; font-size: 0.78rem; padding: 0.35em 0.7em; }
+.sister__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.sister__item:hover img { transform: scale(1.04); }
+.sister__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: clamp(1.75rem, 4vw, 2.5rem); }
+@media (prefers-reduced-motion: reduce) { .sister__item img { transition: none; } }

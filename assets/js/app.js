@@ -692,9 +692,9 @@
     var price = it.sizes ? it.sizes[cupState.size] : it.price;
     var sz = SIZES[cupState.size] || { name: "", ml: "" };
     out.innerHTML = "<b>" + esc(it.name) + "</b>" + (it.sizes ? '<span class="r-size">' + esc(sz.name) + " · " + esc(sz.ml) + " ml</span>" : "") +
-      '<span class="r-price">' + esc(money(price)) + "</span>" + (s.status === "out" ? '<span class="r-out">Sold out today</span>' : "");
+      (s.status === "out" ? '<span class="r-out">Sold out today</span>' : "");
     var canvas = $("[data-cup-canvas]");
-    if (canvas) canvas.setAttribute("aria-label", "A Tess Coffee takeaway cup: " + it.name + (it.sizes ? ", " + sz.name.toLowerCase() : "") + ", " + money(price) + (cupState.lid ? ", lid off so you can see inside" : "") + ". Drag it, or use the left and right arrow keys, to spin it.");
+    if (canvas) canvas.setAttribute("aria-label", "A Tess Coffee takeaway cup: " + it.name + (it.sizes ? ", " + sz.name.toLowerCase() : "") + (cupState.lid ? ", lid off so you can see inside" : "") + ". Drag it, or use the left and right arrow keys, to spin it.");
   }
 
   function renderCupSizes() {
