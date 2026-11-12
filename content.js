@@ -57,10 +57,10 @@ window.TESS = {
 
   /* 3. LOCATION ----------------------------------------------------- */
   location: {
-    // PLACEHOLDER: the map pin. To get yours: open Google Maps, long-press
+    // The map pin (confirmed 2026-11-12). To change it: open Google Maps, long-press
     // your front door, and copy the two numbers it shows (latitude, longitude).
-    lat: 8.99690,
-    lng: 38.78670,
+    lat: 8.996205,
+    lng: 38.791927,
 
     area: "Bole, Addis Ababa",                       // PLACEHOLDER  (short, used at the top of the page)
     address: ["Off Cameroon Street, Bole", "Addis Ababa, Ethiopia"], // PLACEHOLDER
