@@ -51,7 +51,7 @@ window.TESS = {
     phone: "0915 53 11 11",         // as printed on the menu
     phoneIntl: "+251915531111",      // the same number in international form, used for tap-to-call and SMS
     telegram: "tesscoffee",         // PLACEHOLDER  (your t.me/ username, or "" to hide)
-    instagram: "tesscoffee",        // PLACEHOLDER  (your instagram username, or "" to hide)
+    instagram: "tess.coffee",       // your instagram username, or "" to hide
     tiktok: ""                      // optional, "" hides it
   },
 
