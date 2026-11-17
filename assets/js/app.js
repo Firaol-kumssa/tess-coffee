@@ -707,7 +707,7 @@
     box.innerHTML = SIZE_KEYS.map(function (k) {
       var avail = ok.indexOf(k) > -1, p = it.sizes ? it.sizes[k] : (k === "M" ? it.price : null);
       return '<label><input type="radio" name="cup-size" value="' + esc(k) + '"' + (k === cupState.size ? " checked" : "") + (avail ? "" : " disabled") + ">" +
-        "<span>" + esc(k) + "<small>" + (avail && p != null ? esc(money(p)) : "–") + '</small><span class="sr-only"> ' + esc(SIZES[k].name) + ", " + esc(SIZES[k].ml) + " ml" + (avail ? "" : ", not available for this drink") + "</span></span></label>";
+        "<span>" + esc(k) + "<small>" + (avail ? esc(SIZES[k].ml) + " ml" : "–") + '</small><span class="sr-only"> ' + esc(SIZES[k].name) + ", " + esc(SIZES[k].ml) + " ml" + (avail ? "" : ", not available for this drink") + "</span></span></label>";
     }).join("");
     if (cup) cup.setSize(cupState.size);
   }
@@ -1249,7 +1249,7 @@
       "@context": "https://schema.org", "@type": "CafeOrCoffeeShop", name: SHOP.name || "Tess Coffee",
       address: { "@type": "PostalAddress", streetAddress: (LOC.address || [])[0], addressLocality: (LOC.address || [])[1] },
       geo: { "@type": "GeoCoordinates", latitude: LOC.lat, longitude: LOC.lng },
-      telephone: SHOP.phone || undefined, servesCuisine: "Coffee", openingHoursSpecification: spec, hasMenu: location.href.split("#")[0] + "#menu"
+      telephone: SHOP.phone || undefined, servesCuisine: "Coffee", openingHoursSpecification: spec
     };
     var s = document.createElement("script");
     s.type = "application/ld+json";
@@ -1261,9 +1261,7 @@
   safe(renderBasics, "basics");
   safe(renderHours, "hours");
   safe(initEthClock, "ethiopian clock");
-  safe(initMenu, "menu");
   safe(initCup, "cup");
-  safe(initBoard, "board");
   safe(renderClock, "clock");
   safe(initTour, "tour");
   safe(initStrip, "photos");
@@ -1278,8 +1276,6 @@
   setInterval(function () {
     safe(renderClock, "clock");
     safe(renderHours, "hours");
-    safe(function () { renderBoard(false); }, "board");
-    safe(function () { renderMenu(false); }, "menu");
     safe(renderCupReadout, "cup readout");
   }, 20000);
 })();

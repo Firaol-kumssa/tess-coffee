@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Tess Coffee · Ethiopian specialty coffee</title>
-  <meta name="description" content="Tess Coffee: Ethiopian coffee and breakfast. See the full menu and prices, what's in stock today, our coffee tours and how to find us.">
+  <meta name="description" content="Tess Coffee: Ethiopian coffee and breakfast. Step inside our lamp-lit room, join a full-day coffee tour and find your way to us.">
   <meta name="theme-color" content="#f6efe2">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
        e.g. https://tesscoffee.com/assets/img/og-image.jpg -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tess Coffee">
-  <meta property="og:description" content="Coffee from where coffee began. Menu, today's stock and directions.">
+  <meta property="og:description" content="Coffee from where coffee began. Coffee tours, the room and how to find us.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -79,7 +79,7 @@
   </svg>
 
   <div class="placeholder-banner" role="region" aria-label="Preview notice" data-placeholder-banner hidden>
-    <p><strong>Preview.</strong> The menu, prices and coffee tour are real. The address, hours and today's stock are placeholders. Edit <code>content.js</code> to make them real.</p>
+    <p><strong>Preview.</strong> The coffee tour is real. The address and hours are placeholders. Edit <code>content.js</code> to make them real.</p>
     <button class="placeholder-banner__close" type="button" data-placeholder-close aria-label="Hide this notice"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
   </div>
 
@@ -89,8 +89,6 @@
         <svg class="brand__logo" viewBox="0 0 685.1 659.5" role="img" aria-label="Tess Coffee, back to the top"><use href="#tess-logo"/></svg>
       </a>
       <nav class="dock" aria-label="Sections">
-        <a href="#today" data-nav="today"><span class="dock__dot" aria-hidden="true"></span>Today</a>
-        <a href="#menu" data-nav="menu">Menu</a>
         <a href="#inside" data-nav="inside">Inside</a>
         <a href="#tours" data-nav="tours">Tours</a>
         <a href="#visit" data-nav="visit">Find us</a>
@@ -113,7 +111,7 @@
           <p class="hero__lede">Ethiopian coffee from a quick macchiato to a slow filter, with chechebsa, foul and eggs for breakfast, in one narrow, lamp-lit room.</p>
           <p class="hero__status" data-open-long aria-live="polite"></p>
           <div class="hero__ctas">
-            <a class="btn btn--primary" href="#menu">See the menu <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--primary" href="#inside">Step inside <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn--ghost" href="#visit"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Find us</a>
           </div>
         </div>
@@ -164,72 +162,6 @@
       <div class="tibeb tibeb--hero" aria-hidden="true"></div>
     </section>
 
-    <!-- TODAY ======================================================= -->
-    <section class="today dark" id="today" aria-labelledby="today-title">
-      <div class="led" aria-hidden="true"></div>
-      <div class="container">
-        <header class="today__head">
-          <div>
-            <p class="eyebrow eyebrow--light"><span class="live-dot" aria-hidden="true"></span>From the counter</p>
-            <h2 class="section-title" id="today-title">On the bar <em>today</em></h2>
-          </div>
-          <div class="today__meta">
-            <p class="today__clock"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-shop-clock></span></p>
-            <p class="today__updated" data-updated></p>
-          </div>
-        </header>
-        <p class="today__summary" data-today-summary aria-live="polite"></p>
-        <div class="filters" role="group" aria-label="Filter the shelves" data-board-filters>
-          <button type="button" aria-pressed="true" data-filter="all">Everything</button>
-          <button type="button" aria-pressed="false" data-filter="in">Available</button>
-          <button type="button" aria-pressed="false" data-filter="out">Sold out</button>
-        </div>
-        <div class="shelves" data-shelves></div>
-      </div>
-    </section>
-
-    <!-- MENU ======================================================== -->
-    <section class="menu" id="menu" aria-labelledby="menu-title">
-      <div class="container">
-        <header class="menu__head">
-          <div>
-            <p class="eyebrow" data-currency-note>Prices in Ethiopian birr</p>
-            <h2 class="section-title" id="menu-title">The <em>menu</em></h2>
-          </div>
-          <div class="sizes-legend" data-sizes-legend></div>
-        </header>
-        <div class="featured-wrap" data-featured-wrap hidden>
-          <h3 class="featured__title">From the front of our menu</h3>
-          <ul class="featured" data-featured></ul>
-        </div>
-      </div>
-
-      <div class="container menu__filters-row">
-        <label class="search">
-          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-          <span class="sr-only">Search the menu</span>
-          <input type="search" placeholder="Search: macchiato, foul, cake…" autocomplete="off" data-menu-search>
-        </label>
-        <label class="switch">
-          <input type="checkbox" data-available-only>
-          <span class="switch__track" aria-hidden="true"></span>
-          <span>Only what's available now</span>
-        </label>
-      </div>
-
-      <div class="menu__tools">
-        <div class="container">
-          <nav class="menu__cats" aria-label="Menu sections" data-menu-cats></nav>
-        </div>
-      </div>
-
-      <div class="container">
-        <p class="menu__empty" data-menu-empty hidden></p>
-        <div class="menu__body" data-menu></div>
-        <noscript><p class="menu__noscript">Turn on JavaScript to see the menu, or ask at the counter.</p></noscript>
-      </div>
-    </section>
-
     <!-- INSIDE ====================================================== -->
     <section class="inside dark" id="inside" aria-labelledby="inside-title">
       <div class="led" aria-hidden="true"></div>
@@ -254,13 +186,13 @@
                 alt="The Tess slow bar at night: glass siphon brewers and pour-over drippers on a granite counter, a loaf cake under a glass dome, and a colourful Ethiopian painting lit by pendant lamps.">
             </picture>
             <button class="spot" type="button" style="--x:86%;--y:46%" data-spot
-              data-title="The siphon" data-text="Two glass globes, a little flame and a minute of theatre at the bar." data-link="#cat-coffee" data-link-label="See the coffee menu">
+              data-title="The siphon" data-text="Two glass globes, a little flame and a minute of theatre at the bar.">
               <span class="sr-only">The siphon</span></button>
-            <button class="spot" type="button" style="--x:55%;--y:56%" data-spot data-item="filter-coffee"
-              data-title="Pour-over, by hand" data-text="Glass drippers on wooden collars. Each cup is poured slowly, in circles, while you watch." data-link="#item-filter-coffee" data-link-label="Find it on the menu">
+            <button class="spot" type="button" style="--x:55%;--y:56%" data-spot
+              data-title="Pour-over, by hand" data-text="Glass drippers on wooden collars. Each cup is poured slowly, in circles, while you watch.">
               <span class="sr-only">The pour-over drippers</span></button>
-            <button class="spot" type="button" style="--x:21%;--y:71%" data-spot data-item="english-cake"
-              data-title="Under the dome" data-text="Cake by the slice waits on the counter under glass. When it's gone, it's gone." data-link="#item-english-cake" data-link-label="Find it on the menu">
+            <button class="spot" type="button" style="--x:21%;--y:71%" data-spot
+              data-title="Under the dome" data-text="Cake by the slice waits on the counter under glass. When it's gone, it's gone.">
               <span class="sr-only">The cake under the glass dome</span></button>
             <button class="spot" type="button" style="--x:54%;--y:27%" data-spot
               data-title="Art on the walls" data-text="Bold Ethiopian paintings in gold frames run the length of the room." >
@@ -646,9 +578,6 @@
       <div class="glass" data-glass>
         <h2 class="site-footer__h">Today</h2>
         <p data-footer-hours></p>
-        <div class="glass__actions">
-          <a class="glass-pill" href="#today"><svg class="icon" aria-hidden="true"><use href="#i-cup"/></svg>What's in stock</a>
-        </div>
       </div>
       <div class="glass" data-glass>
         <h2 class="site-footer__h">Say hello</h2>
@@ -661,7 +590,7 @@
 
     <div class="container site-footer__base">
       <p>© <span data-year>2026</span> Tess Coffee</p>
-      <p class="site-footer__placeholder" data-placeholder-footnote hidden>The address, hours and today's stock shown are placeholders.</p>
+      <p class="site-footer__placeholder" data-placeholder-footnote hidden>The address and hours shown are placeholders.</p>
       <a class="to-top" href="#top" data-to-top aria-label="Back to the top">
         <svg class="to-top__ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="to-top__track" cx="24" cy="24" r="22"/><circle class="to-top__fill" cx="24" cy="24" r="22"/></svg>
         <svg class="icon" aria-hidden="true"><use href="#i-cup"/></svg>
